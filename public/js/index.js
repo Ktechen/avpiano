@@ -41,7 +41,7 @@ function AddPlayMode(btn, audio){
 
 function AddPauseMode(btn, audio){
     btn.addEventListener("click", () => {
-        console.log("Play");
+        console.log("Pause");
         audio.pause();
     });
 }
