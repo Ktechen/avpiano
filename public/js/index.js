@@ -1,7 +1,7 @@
 const audioContext = new AudioContext();
 
-const StartBtn = document.getElementById("Start1");
-const PauseBtn = document.getElementById("Pause1");
+const StartBtn1 = document.getElementById("Start1");
+const PauseBtn1 = document.getElementById("Pause1");
 
 const StartBtn2 = document.getElementById("Start2");
 const PauseBtn2 = document.getElementById("Pause2");
@@ -32,24 +32,22 @@ PauseGlobalBtn.addEventListener("click", () => {
     audio2.pause();
 });
 
-StartBtn.addEventListener("click", () => {
-    console.log("Play");
-    audio1.play();
-});
+function AddPlayMode(btn, audio){
+    btn.addEventListener("click", () => {
+        console.log("Play");
+        audio.play();
+    });
+}
 
-StartBtn2.addEventListener("click", () => {
-    console.log("Play");
-    audio2.play();
-});
+function AddPauseMode(btn, audio){
+    btn.addEventListener("click", () => {
+        console.log("Play");
+        audio.pause();
+    });
+}
 
-PauseBtn.addEventListener("click", () => {
-    console.log("Pause");
-    audio1.pause();
-});
-
-PauseBtn2.addEventListener("click", () => {
-    console.log("Pause");
-    audio2.pause();
-});
-
+AddPlayMode(StartBtn1, audio1);
+AddPlayMode(StartBtn2, audio2);
+AddPauseMode(PauseBtn1, audio1);
+AddPauseMode(PauseBtn2, audio2);
 
