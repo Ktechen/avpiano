@@ -3,30 +3,28 @@
     <link href='//fonts.googleapis.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'>
 
     <title>Visualizer | Web Audio API</title>
+    <link rel="stylesheet" href="css/index.css">
 
-    <link rel="stylesheet" href="/static/style.css" type="text/css" media="screen"/>
 </head>
 
 <body>
 <div id="container">
-    <div id="global">
-        <button id="StartGlobal">Start all</button>
-        <button id="PauseGlobal">Pause all</button>
-    </div>
-    <div id="AudioContainer1">
+    <div id="audio-container">
         <h2 id="Tile"></h2>
-        <button id="Start1">Start</button>
-        <button id="Pause1">Pause</button>
-        <button id="Reset1">Reset</button>
+        <button id="start-button">Start</button>
+        <button id="pause-button">Pause</button>
+        <button id="restart-button">Restart</button>
         <span id="CurrentTime1">Time: </span>
+        <canvas id="visualizer"></canvas>
     </div>
-    <div id="AudioContainer2">
-        <button id="Start2">Start</button>
-        <button id="Pause2">Pause</button>
-        <button id="Reset2">Reset</button>
-        <span id="CurrentTime2">Time: </span>
+
+    <div id="visualizer-container">
+        <canvas></canvas>
+
     </div>
 </div>
 </body>
-<script src="js/index.js"></script>
+<script src="js/AudioController.js"></script>
+<script src="js/AudioHandler.js"></script>
+<script src="js/AudioVisualizer.js"></script>
 </html>
