@@ -9,6 +9,7 @@ export function AudioVisualizer(audio) {
   // Init Canvas Size
   this.canvas.width = CANVAS_WIDTH;
   this.canvas.height = CANVAS_HEIGHT;
+  this.canvasContext = this.canvas.getContext("2d");
 
   this.audio = audio;
 
@@ -40,22 +41,32 @@ AudioVisualizer.prototype.drawAudio = function () {
  * Animates the Visualization
  */
 AudioVisualizer.prototype.animate = function () {
-  let x = 0;
-  const canvasContext = this.canvas.getContext("2d");
-  canvasContext.clearRect(0, 0, this.canvas.width, this.canvas.height);
-  this.analyser.getByteFrequencyData(this.dataArray);
-  for (let i = 0; i < this.bufferLength; i++) {
-    let barHeight = this.dataArray[i];
-    canvasContext.fillStyle = "white";
-    canvasContext.fillRect(
-      x,
-      CANVAS_HEIGHT - barHeight,
-      this.barWidth,
-      barHeight
-    );
+  this.canvasContext.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+  this.analyser.getByteTimeDomainData(this.dataArray);
+  this.canvasContext.fillStyle = "rgb(200, 200, 200)";
+  this.canvasContext.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
 
-    x += this.barWidth;
+  this.canvasContext.lineWidth = 2;
+  this.canvasContext.strokeStyle = "rgb(0, 0, 0)";
+  this.canvasContext.beginPath();
+
+  var sliceWidth = (CANVAS_WIDTH * 1.0) / this.bufferLength;
+  var x = 0;
+
+  for (var i = 0; i < this.bufferLength; i++) {
+    var v = this.dataArray[i] / 128.0;
+    var y = (v * CANVAS_HEIGHT) / 2;
+
+    if (i === 0) {
+      this.canvasContext.moveTo(x, y);
+    } else {
+      this.canvasContext.lineTo(x, y);
+    }
+
+    x += sliceWidth;
   }
+  this.canvasContext.lineTo(CANVAS_WIDTH, CANVAS_HEIGHT / 2);
+  this.canvasContext.stroke();
 
   requestAnimationFrame(this.animate.bind(this));
 };
