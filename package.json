@@ -4,7 +4,8 @@
   "description": "Piano Application",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "live-server public --port=8090"
+    "start": "live-server public --port=8090",
+    "build": "tsc public/js/AudioHandler.ts && tsc public/js/AudioController.ts && tsc public/js/AudioVisualizer.ts"
   },
   "author": "",
   "license": "ISC",
