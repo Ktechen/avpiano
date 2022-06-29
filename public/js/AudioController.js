@@ -14,9 +14,14 @@ function initAudioHandler() {
   //Pause Button
   const pauseButton = document.getElementById("pause-button");
   pauseButton.addEventListener("click", pauseButtonListener);
+
   // Restart Button
   const restartButton = document.getElementById("restart-button");
   restartButton.addEventListener("click", restartButtonListener);
+
+  // volume Button
+  const volumeButton = document.getElementById("volume-button");
+  volumeButton.addEventListener("change", ()=> volumeButtonListener(volumeButton.value));
 
   audioHandler = new AudioHandler(new Audio("sounds/default_sound.mp3"));
   audioVisualizer = new AudioVisualizer(audioHandler.getAudio());
@@ -41,4 +46,9 @@ function pauseButtonListener() {
  */
 function restartButtonListener() {
   audioHandler.restartAudio();
+}
+
+
+function volumeButtonListener(volume){
+  audioHandler.setVolume(volume);
 }
