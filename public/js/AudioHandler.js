@@ -34,4 +34,17 @@ export class AudioHandler {
         console.log("restarted audio...");
         this.audio.currentTime = 0;
     }
+
+    setPlaybackRate(playbackRate){
+        console.log("Speed of audio: " + this.audio.playbackRate)
+        this.audio.playbackRate = playbackRate;
+    }
+
+    getPlaybackRate(){
+        return this.audio.playbackRate;
+    }
+
+    getVolume(){
+        return this.audio.volume;
+    }
 }
