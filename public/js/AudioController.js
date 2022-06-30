@@ -37,7 +37,7 @@ function initAudioHandler() {
     // Time Span
     const CurrentTime = document.getElementById("CurrentTime");
     startButton.addEventListener("click", () => {
-       setInterval(()=> CurrentTime.textContent = CurrentTimeListener(), 500);
+       setInterval(()=> CurrentTime.textContent = currentTimeListener(), 500);
     });
 
     audioHandler = new AudioHandler(new Audio("sounds/default_sound.mp3"));
@@ -106,6 +106,6 @@ function restartAllButtonListener() {
 /**
  * CurrentTimeListener of Track
  */
-function CurrentTimeListener() {
+function currentTimeListener() {
     return audioHandler.getCurrentTime();
 }
