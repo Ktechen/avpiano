@@ -40,6 +40,11 @@ export class AudioHandler {
         this.audio.playbackRate = playbackRate;
     }
 
+    setLoop(bool){
+        console.log("start Loop of audio: " + this.audio.loop)
+        this.audio.loop = bool;
+    }
+
     getPlaybackRate(){
         return this.audio.playbackRate;
     }
@@ -58,5 +63,6 @@ export class AudioHandler {
         this.audio.currentTime = 0;
         this.audio.volume = 1;
         this.audio.playbackRate = 1;
+        this.audio.loop = false;
     }
 }
