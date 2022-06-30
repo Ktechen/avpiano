@@ -5,7 +5,6 @@ var audioHandler;
 var audioVisualizer;
 
 initAudioHandler();
-
 function initAudioHandler() {
     // Start button
     const startButton = document.getElementById("start-button");
@@ -21,6 +20,10 @@ function initAudioHandler() {
     // Restart Button
     const restartButton = document.getElementById("restart-button");
     restartButton.addEventListener("click", restartButtonListener);
+
+    // RestartAll Button
+    const restartAllButton = document.getElementById("restartAll-button");
+    restartAllButton.addEventListener("click", restartAllButtonListener);
 
     // volume Button
     const volumeButton = document.getElementById("volume-button");
@@ -59,23 +62,36 @@ function restartButtonListener() {
 }
 
 /**
- * volume a Track
+ * volume of Track
  */
 function volumeButtonListener(volume) {
     audioHandler.setVolume(volume);
 }
 
+/**
+ * get Volume from Track
+ */
 function getVolumeButtonListener() {
     return audioHandler.getVolume();
 }
 
+/**
+ * get playbackRate from Track
+ */
 function getPlaybackRateButtonListener() {
     return audioHandler.getPlaybackRate();
 }
 
 /**
- * playbackRate a Track
+ * playbackRate of Track
  */
 function playbackRateButtonListener(playbackRate) {
     audioHandler.setPlaybackRate(playbackRate);
+}
+
+/**
+ * Reset all of Track
+ */
+function restartAllButtonListener() {
+    audioHandler.resetAll();
 }

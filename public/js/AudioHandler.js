@@ -47,4 +47,11 @@ export class AudioHandler {
     getVolume(){
         return this.audio.volume;
     }
+
+    resetAll(){
+        console.log("resetAll");
+        this.audio.currentTime = 0;
+        this.audio.volume = 1;
+        this.audio.playbackRate = 1;
+    }
 }
