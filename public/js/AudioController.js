@@ -5,6 +5,7 @@ var audioHandler;
 var audioVisualizer;
 
 initAudioHandler();
+
 function initAudioHandler() {
     // Start button
     const startButton = document.getElementById("start-button");
@@ -32,6 +33,12 @@ function initAudioHandler() {
     // playbackRate Button
     const playbackRateButton = document.getElementById("playbackRate-button");
     playbackRateButton.addEventListener("change", () => playbackRateButtonListener(playbackRateButton.value));
+
+    // Time Span
+    const CurrentTime = document.getElementById("CurrentTime");
+    startButton.addEventListener("click", () => {
+       setInterval(()=> CurrentTime.textContent = CurrentTimeListener(), 500);
+    });
 
     audioHandler = new AudioHandler(new Audio("sounds/default_sound.mp3"));
     audioVisualizer = new AudioVisualizer(audioHandler.getAudio());
@@ -94,4 +101,11 @@ function playbackRateButtonListener(playbackRate) {
  */
 function restartAllButtonListener() {
     audioHandler.resetAll();
+}
+
+/**
+ * CurrentTimeListener of Track
+ */
+function CurrentTimeListener() {
+    return audioHandler.getCurrentTime();
 }

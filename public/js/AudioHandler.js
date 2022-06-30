@@ -48,6 +48,11 @@ export class AudioHandler {
         return this.audio.volume;
     }
 
+    getCurrentTime(){
+        console.log("Current Time: " + this.audio.currentTime)
+        return this.audio.currentTime;
+    }
+
     resetAll(){
         console.log("resetAll");
         this.audio.currentTime = 0;
