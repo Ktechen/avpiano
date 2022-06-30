@@ -7,6 +7,12 @@ var audioVisualizer;
 initAudioHandler();
 
 function initAudioHandler() {
+    initListener();
+    audioHandler = new AudioHandler(new Audio("sounds/default_sound.mp3"));
+    audioVisualizer = new AudioVisualizer(audioHandler.getAudio());
+}
+
+function initListener(){
     // Start button
     const startButton = document.getElementById("start-button");
 
@@ -46,9 +52,6 @@ function initAudioHandler() {
     startButton.addEventListener("click", () => {
         setInterval(() => CurrentTime.textContent = currentTimeListener(), 500);
     });
-
-    audioHandler = new AudioHandler(new Audio("sounds/default_sound.mp3"));
-    audioVisualizer = new AudioVisualizer(audioHandler.getAudio());
 }
 
 /**
