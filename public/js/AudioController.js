@@ -1,54 +1,128 @@
-import { AudioHandler } from "./AudioHandler.js";
-import { AudioVisualizer } from "./AudioVisualizer.js";
+import {AudioHandler} from "./AudioHandler.js";
+import {AudioVisualizer} from "./AudioVisualizer.js";
 
 var audioHandler;
 var audioVisualizer;
 
 initAudioHandler();
+
 function initAudioHandler() {
-  // Start button
-  const startButton = document.getElementById("start-button");
-
-  startButton.addEventListener("click", startButtonListener);
-
-  //Pause Button
-  const pauseButton = document.getElementById("pause-button");
-  pauseButton.addEventListener("click", pauseButtonListener);
-
-  // Restart Button
-  const restartButton = document.getElementById("restart-button");
-  restartButton.addEventListener("click", restartButtonListener);
-
-  // volume Button
-  const volumeButton = document.getElementById("volume-button");
-  volumeButton.addEventListener("change", ()=> volumeButtonListener(volumeButton.value));
-
-  audioHandler = new AudioHandler(new Audio("sounds/default_sound.mp3"));
-  audioVisualizer = new AudioVisualizer(audioHandler.getAudio());
+    initListener();
+    audioHandler = new AudioHandler(new Audio("sounds/default_sound.mp3"));
+    audioVisualizer = new AudioVisualizer(audioHandler.getAudio());
 }
+
+function initListener(){
+    // Start button
+    const startButton = document.getElementById("start-button");
+
+    startButton.addEventListener("click", startButtonListener);
+    startButton.addEventListener("click", () => playbackRateButton.value = getPlaybackRateButtonListener);
+    startButton.addEventListener("click", () => volumeButton.value = getVolumeButtonListener);
+
+    //Pause Button
+    const pauseButton = document.getElementById("pause-button");
+    pauseButton.addEventListener("click", pauseButtonListener);
+
+    // Restart Button
+    const restartButton = document.getElementById("restart-button");
+    restartButton.addEventListener("click", restartButtonListener);
+
+    // RestartAll Button
+    const restartAllButton = document.getElementById("restartAll-button");
+    restartAllButton.addEventListener("click", restartAllButtonListener);
+
+    // volume Button
+    const volumeButton = document.getElementById("volume-button");
+    volumeButton.addEventListener("change", () => volumeButtonListener(volumeButton.value));
+
+    // playbackRate Button
+    const playbackRateButton = document.getElementById("playbackRate-button");
+    playbackRateButton.addEventListener("change", () => playbackRateButtonListener(playbackRateButton.value));
+
+    // loop Button
+    const loopButtonFalse = document.getElementById("loopFalse-button");
+    loopButtonFalse.addEventListener("click", () => loopListener(false));
+
+    const loopButtonTrue = document.getElementById("loopTrue-button");
+    loopButtonTrue.addEventListener("click", () => loopListener(true));
+
+    // Time Span
+    const CurrentTime = document.getElementById("CurrentTime");
+    startButton.addEventListener("click", () => {
+        setInterval(() => CurrentTime.textContent = currentTimeListener(), 500);
+    });
+}
+
 /**
  * Starts a Track
  */
 function startButtonListener() {
-  if (!audioHandler.getIsPlaying()) {
-    audioHandler.startAudio();
-    audioVisualizer.drawAudio();
-  }
+    if (!audioHandler.getIsPlaying()) {
+        audioHandler.startAudio();
+        audioVisualizer.drawAudio();
+    }
 }
+
 /**
  * Stops a Track
  */
 function pauseButtonListener() {
-  audioHandler.pauseAudio();
+    audioHandler.pauseAudio();
 }
+
 /**
  * Restarts a Track
  */
 function restartButtonListener() {
-  audioHandler.restartAudio();
+    audioHandler.restartAudio();
 }
 
+/**
+ * volume of Track
+ */
+function volumeButtonListener(volume) {
+    audioHandler.setVolume(volume);
+}
 
-function volumeButtonListener(volume){
-  audioHandler.setVolume(volume);
+/**
+ * get Volume from Track
+ */
+function getVolumeButtonListener() {
+    return audioHandler.getVolume();
+}
+
+/**
+ * get playbackRate from Track
+ */
+function getPlaybackRateButtonListener() {
+    return audioHandler.getPlaybackRate();
+}
+
+/**
+ * playbackRate of Track
+ */
+function playbackRateButtonListener(playbackRate) {
+    audioHandler.setPlaybackRate(playbackRate);
+}
+
+/**
+ * Reset all of Track
+ */
+function restartAllButtonListener() {
+    audioHandler.resetAll();
+}
+
+/**
+ * CurrentTimeListener of Track
+ */
+function currentTimeListener() {
+    return audioHandler.getCurrentTime();
+}
+
+/**
+ * loopListener of Track
+ */
+function loopListener(bool) {
+    audioHandler.setLoop(bool);
 }
