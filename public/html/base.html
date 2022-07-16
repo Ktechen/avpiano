@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Keyboard Game</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="../css/index.css" />
+    <link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet">
+</head>
+
+<body>
+<div class="container" id="AppName">
+
+    <h1>PianoFlow</h1>
+
+    <div class="audioVisualizer">
+        <canvas id="visualizer"></canvas>
+    </div>
+
+    <div class="controls">
+
+        <button id="beat" ></button>
+        <button id="effect" ></button>
+        <button id="octave" ></button>
+        <input type="text" id="song_name" placeholder="Name Titel"> </input>
+        <button id="record">Rec.</button>
+        <button id="save_song">Save</button>
+    </div>
+
+    <div id="keys">
+        <div class="note ivory" id="C" data-note="C">C</div>
+        <div class="note ebony" id="C#" data-note="C#">C#</div>
+        <div class="note ivory" id="D" data-note="D">D</div>
+        <div class="note ebony" id="Eb" data-note="Eb">Eb</div>
+        <div class="note ivory" id="E" data-note="E">E</div>
+        <div class="note ivory" id="F" data-note="F">F</div>
+        <div class="note ebony" id="F#" data-note="F#">F#</div>
+        <div class="note ivory" id="G" data-note="G">G</div>
+        <div class="note ebony" id="G#" data-note="G#">G#</div>
+        <div class="note ivory" id="A" data-note="A">A</div>
+        <div class="note ebony" id="Bb" data-note="Bb">Bb</div>
+        <div class="note ivory" id="B" data-note="B">B</div>
+    </div>
+
+
+    <div class="SavedTitels">
+        <p>saved Titels</p>
+        <select id="song_names"></select>
+        <button id="play" data-action="playLoad">►</button>
+
+        <div class="volume x mt1">
+            <p>Volume</p>
+            <input type="range" min="0.0" max="5.0" step="0.01" value="0.5" list="volumes" name="volume">
+            <datalist id="volumes">
+                <option value="0.0" label="Mute">
+                <option value="5.0" label="100%">
+            </datalist>
+        </div>
+    </div>
+
+</div>
+
+</body>
+
+<script src="../js/AudioController.js" type="module"></script>
+<script src="../js/AudioHandler.js" type="module"></script>
+<script src="../js/AudioVisualizer.js" type="module"></script>
+</html>
