@@ -1,5 +1,6 @@
 import {AudioHandler} from "./AudioHandler.js";
 import {AudioVisualizer} from "./AudioVisualizer.js";
+import {AudioContextDto} from "./AudioContextDto.js";
 
 export class AudioInstance{
 
@@ -23,12 +24,9 @@ export class AudioInstance{
         this.InstanceDict[sound1] = new AudioContextDto(audioVisualizer1, audioHandler1);
         this.InstanceDict[sound2] = new AudioContextDto(audioVisualizer2, audioHandler2);
     }
-}
 
-class AudioContextDto {
-    constructor(AudioVisualizer, AudioHandler) {
-        this._AudioVisualizer = AudioVisualizer;
-        this._AudioHandler = AudioHandler;
+    addToDict(index, AudioContextDto){
+        this.InstanceDict[index] = AudioContextDto;
     }
 }
 
