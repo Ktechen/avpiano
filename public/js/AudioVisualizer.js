@@ -49,12 +49,12 @@ AudioVisualizer.prototype.animate = function () {
   this.canvasContext.strokeStyle = "rgb(0, 0, 0)";
   this.canvasContext.beginPath();
 
-  var sliceWidth = (CANVAS_WIDTH * 1.0) / this.bufferLength;
-  var x = 0;
+  const sliceWidth = (CANVAS_WIDTH) / this.bufferLength;
+  let x = 0;
 
-  for (var i = 0; i < this.bufferLength; i++) {
-    var v = this.dataArray[i] / 128.0;
-    var y = (v * CANVAS_HEIGHT) / 2;
+  for (let i = 0; i < this.bufferLength; i++) {
+    const v = this.dataArray[i] / 128.0;
+    const y = (v * CANVAS_HEIGHT) / 2;
 
     if (i === 0) {
       this.canvasContext.moveTo(x, y);
