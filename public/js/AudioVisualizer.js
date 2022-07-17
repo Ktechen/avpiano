@@ -2,7 +2,7 @@ var CANVAS_WIDTH = 640;
 var CANVAS_HEIGHT = 360;
 
 var FFT_SIZE = 2048;
-
+var MEDIA_ELEMENT_NODES = new WeakMap();
 export function AudioVisualizer(audio) {
   this.canvas = document.getElementById("visualizer");
 

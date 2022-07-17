@@ -269,3 +269,11 @@ input[type=range]:focus::-ms-fill-lower {
 input[type=range]:focus::-ms-fill-upper {
     background: #367ebd;
 }
+
+
+#dropzone_mp3{
+    width: 500px;
+    height: 600px;
+    background: #022c51;
+
+}

@@ -11,6 +11,7 @@
   "license": "ISC",
   "homepage": "https://github.com/Ktechen/avpiano#readme",
   "dependencies": {
+    "dropzone": "^6.0.0-beta.2",
     "live-server": "^1.1.0"
   }
 }
