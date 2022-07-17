@@ -21,7 +21,6 @@ function initListener() {
   //Record
   getUserMedia();
 
-
   // Start button
   const startButton = document.getElementById("start-button");
 
@@ -140,7 +139,10 @@ function playbackRateButtonListener(playbackRate) {
  * Reset all of Track
  */
 function restartAllButtonListener() {
-  audioHandler.resetAll();
+  for (const [key, value] of Object.entries(audioInstance.InstanceDict)) {
+    console.log(key, value);
+    value._AudioHandler.resetAll();
+  }
 }
 
 /**
