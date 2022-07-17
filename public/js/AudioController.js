@@ -1,18 +1,26 @@
 import { AudioHandler } from "./AudioHandler.js";
 import { AudioVisualizer } from "./AudioVisualizer.js";
+import {AudioInstance} from "./AudioInstance.js";
 
-var audioHandler;
-var audioVisualizer;
+let audioHandler;
+let audioVisualizer;
+let audioInstance
 
 initAudioHandler();
 
 function initAudioHandler() {
+  audioInstance = new AudioInstance();
   initListener();
   audioHandler = new AudioHandler(new Audio("../sounds/default_sound.mp3"));
   audioVisualizer = new AudioVisualizer(audioHandler.getAudio());
 }
 
 function initListener() {
+
+  //Record
+  getUserMedia();
+
+
   // Start button
   const startButton = document.getElementById("start-button");
 
@@ -66,10 +74,11 @@ function initListener() {
   // Change chosen sound
   const select = document.getElementById("song_names");
   select.addEventListener("change", (event) => {
-    audioHandler = new AudioHandler(
-      new Audio("../sounds/" + event.target.value)
-    );
-    audioVisualizer = new AudioVisualizer(audioHandler.getAudio());
+    console.log(event.target.value)
+    let dictElement = audioInstance.InstanceDict[event.target.value];
+    audioHandler = dictElement._AudioHandler;
+    audioVisualizer = dictElement._AudioHandler;
+    console.log(dictElement)
   });
   
 }
@@ -145,4 +154,28 @@ function currentTimeListener() {
  */
 function loopListener(bool) {
   audioHandler.setLoop(bool);
+}
+
+function getUserMedia(){
+  if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+    console.log("getUserMedia supported.");
+    navigator.mediaDevices
+        .getUserMedia(
+            // constraints - only audio needed for this app
+            {
+              audio: true,
+            }
+        )
+        // Success callback
+        .then(function (stream) {
+          
+        })
+
+        // Error callback
+        .catch(function (err) {
+          console.log("The following getUserMedia error occurred: " + err);
+        });
+  } else {
+    console.log("getUserMedia not supported on your browser!");
+  }
 }
