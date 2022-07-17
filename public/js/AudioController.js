@@ -11,8 +11,9 @@ initAudioHandler();
 function initAudioHandler() {
   audioInstance = new AudioInstance();
   initListener();
-  audioHandler = new AudioHandler(new Audio("../sounds/default_sound.mp3"));
-  audioVisualizer = new AudioVisualizer(audioHandler.getAudio());
+  const firstStartAudio = audioInstance.InstanceDict["default_sound.mp3"];
+  audioHandler = firstStartAudio._AudioHandler;
+  audioVisualizer = firstStartAudio._AudioVisualizer;
 }
 
 function initListener() {
@@ -77,7 +78,7 @@ function initListener() {
     console.log(event.target.value)
     let dictElement = audioInstance.InstanceDict[event.target.value];
     audioHandler = dictElement._AudioHandler;
-    audioVisualizer = dictElement._AudioHandler;
+    audioVisualizer = dictElement._AudioVisualizer;
     console.log(dictElement)
   });
   
