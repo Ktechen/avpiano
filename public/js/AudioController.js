@@ -71,10 +71,7 @@ function initListener() {
     );
     audioVisualizer = new AudioVisualizer(audioHandler.getAudio());
   });
-  // update Options 
-  select.addEventListener("click", () => {
-    alert("test");
-  });
+  
 }
 
 /**
