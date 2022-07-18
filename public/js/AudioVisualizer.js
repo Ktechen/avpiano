@@ -42,7 +42,7 @@ AudioVisualizer.prototype.drawAudio = function () {
 AudioVisualizer.prototype.animate = function () {
   this.canvasContext.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
   this.analyser.getByteTimeDomainData(this.dataArray);
-  this.canvasContext.fillStyle = "rgb(200, 200, 200)";
+  this.canvasContext.fillStyle = "rgb(255, 255, 255)";
   this.canvasContext.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
 
   this.canvasContext.lineWidth = 2;
