@@ -34,4 +34,35 @@ export class AudioHandler {
         console.log("restarted audio...");
         this.audio.currentTime = 0;
     }
+
+    setPlaybackRate(playbackRate){
+        console.log("Speed of audio: " + this.audio.playbackRate)
+        this.audio.playbackRate = playbackRate;
+    }
+
+    setLoop(bool){
+        console.log("start Loop of audio: " + this.audio.loop)
+        this.audio.loop = bool;
+    }
+
+    getPlaybackRate(){
+        return this.audio.playbackRate;
+    }
+
+    getVolume(){
+        return this.audio.volume;
+    }
+
+    getCurrentTime(){
+        console.log("Current Time: " + this.audio.currentTime)
+        return this.audio.currentTime;
+    }
+
+    resetAll(){
+        console.log("resetAll");
+        this.audio.currentTime = 0;
+        this.audio.volume = 1;
+        this.audio.playbackRate = 1;
+        this.audio.loop = false;
+    }
 }

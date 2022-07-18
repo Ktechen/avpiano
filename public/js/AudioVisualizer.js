@@ -1,8 +1,7 @@
-var CANVAS_WIDTH = 640;
-var CANVAS_HEIGHT = 360;
+var CANVAS_WIDTH = 388;
+var CANVAS_HEIGHT = 100;
 
 var FFT_SIZE = 2048;
-
 export function AudioVisualizer(audio) {
   this.canvas = document.getElementById("visualizer");
 
@@ -43,19 +42,19 @@ AudioVisualizer.prototype.drawAudio = function () {
 AudioVisualizer.prototype.animate = function () {
   this.canvasContext.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
   this.analyser.getByteTimeDomainData(this.dataArray);
-  this.canvasContext.fillStyle = "rgb(200, 200, 200)";
+  this.canvasContext.fillStyle = "rgb(255, 255, 255)";
   this.canvasContext.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
 
   this.canvasContext.lineWidth = 2;
   this.canvasContext.strokeStyle = "rgb(0, 0, 0)";
   this.canvasContext.beginPath();
 
-  var sliceWidth = (CANVAS_WIDTH * 1.0) / this.bufferLength;
-  var x = 0;
+  const sliceWidth = (CANVAS_WIDTH) / this.bufferLength;
+  let x = 0;
 
-  for (var i = 0; i < this.bufferLength; i++) {
-    var v = this.dataArray[i] / 128.0;
-    var y = (v * CANVAS_HEIGHT) / 2;
+  for (let i = 0; i < this.bufferLength; i++) {
+    const v = this.dataArray[i] / 128.0;
+    const y = (v * CANVAS_HEIGHT) / 2;
 
     if (i === 0) {
       this.canvasContext.moveTo(x, y);
