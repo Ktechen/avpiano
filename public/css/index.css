@@ -136,6 +136,7 @@ input, select {
     margin-left: 18px;
 }
 
+/* Idee wenn Zeit reicht*/
 .downloader {
     margin: 2em 0 2em 0;
     background: #2522b3;
@@ -144,7 +145,7 @@ input, select {
     padding: 1em;
     border-radius: 8px;
 }
-
+/* Idee wenn Zeit reicht*/
 .displayUrlSong {
     margin: 0 0 1em 0;
     background: #083a76;
@@ -154,7 +155,7 @@ input, select {
 }
 
 ::placeholder {
-    color: #055432;
+    color: #000000;
     font-family: 'VT323', cursive;
 }
 
