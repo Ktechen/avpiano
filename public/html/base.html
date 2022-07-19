@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
 
 <head>
     <meta charset="utf-8" />
@@ -22,7 +22,7 @@
         <button id="beat" ></button>
         <button id="effect" ></button>
         <button id="octave" ></button>
-        <input type="text" id="song_name" placeholder="Name Titel"> </input>
+        <label for="song_name"></label><input type="text" id="song_name" placeholder="Name Titel">
         <button id="record">Rec.</button>
         <button id="save_song">Save</button>
     </div>
@@ -42,24 +42,20 @@
         <div class="note ivory" id="B" data-note="B">B</div>
     </div>
 
-
-    <div class="SavedTitels">
-        <p>saved Titels</p>
-        <select id="song_names">
-            <option value="default_sound.mp3" selected>
-                default_sound
-            </option>
-            <option value="LassDieSonneindeinHerz.mp3">
-                Lass die Sonne in dein Herz
-            </option>
-        </select>
-        <button id="play-button">►</button>
-        <button id="pause-button">❚❚</button>
-        <button id="restart-button">❚►</button>
-        <button id="loopTrue-button">Loop on ♻</button>
-        <button id="loopFalse-button">Loop Off</button>
-        <button id="restartAll-button">❚❚►</button>
-
+    <h2>Your Tunes</h2>
+    <div id="savedTitel" class="SavedTitels">
+        <div class="clipContainer">
+            <div id="1" class="play"></div>
+            <p class="title">Titel 1</p>
+            <div id="reset1" class="reset"></div>
+            <div id="progress1" class="progress">
+                <div id="progressbar1" class="progressbar"></div>
+            </div>
+            <audio id="Titel1">
+                <source src="public/sounds" type="audio/mpeg">
+            </audio>
+        </div>
+    </div>
 
         <div id="volume x mt1">
             <label for="volume-button">Volume: </label>
@@ -75,7 +71,6 @@
             <label for="CurrentTime">Time:</label>
             <h3 id="CurrentTime"></h3>
         </div>
-    </div>
 
 </div>
 
