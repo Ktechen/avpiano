@@ -1,10 +1,10 @@
 import { AudioHandler } from "./AudioHandler.js";
 import { AudioVisualizer } from "./AudioVisualizer.js";
-import {AudioInstance} from "./AudioInstance.js";
+import { AudioInstance } from "./AudioInstance.js";
 
 let audioHandler;
 let audioVisualizer;
-let audioInstance
+let audioInstance;
 
 initAudioHandler();
 
@@ -17,10 +17,6 @@ function initAudioHandler() {
 }
 
 function initListener() {
-
-  //Record
-  getUserMedia();
-
   // Start button
   const startButton = document.getElementById("start-button");
 
@@ -74,13 +70,12 @@ function initListener() {
   // Change chosen sound
   const select = document.getElementById("song_names");
   select.addEventListener("change", (event) => {
-    console.log(event.target.value)
+    console.log(event.target.value);
     let dictElement = audioInstance.InstanceDict[event.target.value];
     audioHandler = dictElement._AudioHandler;
     audioVisualizer = dictElement._AudioVisualizer;
-    console.log(dictElement)
+    console.log(dictElement);
   });
-  
 }
 
 /**
@@ -157,28 +152,4 @@ function currentTimeListener() {
  */
 function loopListener(bool) {
   audioHandler.setLoop(bool);
-}
-
-function getUserMedia(){
-  if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-    console.log("getUserMedia supported.");
-    navigator.mediaDevices
-        .getUserMedia(
-            // constraints - only audio needed for this app
-            {
-              audio: true,
-            }
-        )
-        // Success callback
-        .then(function (stream) {
-          
-        })
-
-        // Error callback
-        .catch(function (err) {
-          console.log("The following getUserMedia error occurred: " + err);
-        });
-  } else {
-    console.log("getUserMedia not supported on your browser!");
-  }
 }

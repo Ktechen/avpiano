@@ -1,33 +1,32 @@
-import {AudioHandler} from "./AudioHandler.js";
-import {AudioVisualizer} from "./AudioVisualizer.js";
-import {AudioContextDto} from "./AudioContextDto.js";
+import { AudioHandler } from "./AudioHandler.js";
+import { AudioVisualizer } from "./AudioVisualizer.js";
+import { AudioContextDto } from "./AudioContextDto.js";
 
-export class AudioInstance{
+export class AudioInstance {
+  InstanceDict = {};
 
-    InstanceDict = {};
+  constructor() {
+    const sound1 = "default_sound.mp3";
+    const audioHandler1 = new AudioHandler(new Audio("../sounds/" + sound1));
 
-    constructor() {
-        const sound1 = "default_sound.mp3";
-        const audioHandler1 = new AudioHandler(
-            new Audio("../sounds/" + sound1)
-        );
+    let audioVisualizer1 = new AudioVisualizer(audioHandler1.getAudio());
 
-        let audioVisualizer1 = new AudioVisualizer(audioHandler1.getAudio());
+    const sound2 = "LassDieSonneindeinHerz.mp3";
+    const audioHandler2 = new AudioHandler(new Audio("../sounds/" + sound2));
 
-        const sound2 = "LassDieSonneindeinHerz.mp3";
-        const audioHandler2 = new AudioHandler(
-            new Audio("../sounds/" + sound2)
-        );
+    let audioVisualizer2 = new AudioVisualizer(audioHandler1.getAudio());
 
-        let audioVisualizer2 = new AudioVisualizer(audioHandler1.getAudio());
+    this.InstanceDict[sound1] = new AudioContextDto(
+      audioVisualizer1,
+      audioHandler1
+    );
+    this.InstanceDict[sound2] = new AudioContextDto(
+      audioVisualizer2,
+      audioHandler2
+    );
+  }
 
-        this.InstanceDict[sound1] = new AudioContextDto(audioVisualizer1, audioHandler1);
-        this.InstanceDict[sound2] = new AudioContextDto(audioVisualizer2, audioHandler2);
-    }
-
-    addToDict(index, AudioContextDto){
-        this.InstanceDict[index] = AudioContextDto;
-    }
+  addToDict(index, AudioContextDto) {
+    this.InstanceDict[index] = AudioContextDto;
+  }
 }
-
-

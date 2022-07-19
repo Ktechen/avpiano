@@ -1,4 +1,7 @@
 import { getPianoAudioContext } from "./PianoSound.js";
+import { AudioHandler } from "./AudioHandler.js";
+import { AudioVisualizer } from "./AudioVisualizer.js";
+
 const record = document.querySelector("#record");
 const saveSong = document.querySelector("#save_song");
 const soundClips = document.querySelector(".sound-clips");
@@ -47,7 +50,7 @@ mediaRecorder.onstop = function (e) {
 
   const clipContainer = document.createElement("article");
   const clipLabel = document.createElement("p");
-  const clipName = document.getElementById("song_name").value;
+  let clipName = document.getElementById("song_name").value;
   const audio = document.createElement("audio");
   const deleteButton = document.createElement("button");
 
@@ -56,11 +59,11 @@ mediaRecorder.onstop = function (e) {
   deleteButton.textContent = "Delete";
   deleteButton.className = "delete";
 
-  if (clipName == "") {
-    clipLabel.textContent = "My unnamed clip";
-  } else {
-    clipLabel.textContent = clipName;
+  if (!clipName) {
+    clipName = "My unnamed clip";
   }
+  clipLabel.textContent = clipName;
+
   clipContainer.appendChild(clipLabel);
   clipContainer.appendChild(audio);
   clipContainer.appendChild(deleteButton);
@@ -72,6 +75,18 @@ mediaRecorder.onstop = function (e) {
   const audioURL = window.URL.createObjectURL(blob);
   audio.src = audioURL;
   console.log("recorder stopped");
+
+  //Create Option
+  let songs = document.getElementById("song_names");
+  let newOption = document.createElement("option");
+  newOption.innerHTML = clipName;
+  newOption.value = audioURL;
+
+  songs.appendChild(newOption);
+
+  // Create Option for Songs
+  const audioHandler = new AudioHandler(new Audio(audioURL));
+  let audioVisualizer = new AudioVisualizer(audioHandler.getAudio());
 
   deleteButton.onclick = function (e) {
     let evtTgt = e.target;
