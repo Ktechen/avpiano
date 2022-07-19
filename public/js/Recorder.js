@@ -1,6 +1,8 @@
 import { getPianoAudioContext } from "./PianoSound.js";
 import { AudioHandler } from "./AudioHandler.js";
 import { AudioVisualizer } from "./AudioVisualizer.js";
+import { getAudioInstance } from "./AudioController.js";
+import { AudioContextDto } from "./AudioContextDto.js";
 
 const record = document.querySelector("#record");
 const saveSong = document.querySelector("#save_song");
@@ -84,9 +86,12 @@ mediaRecorder.onstop = function (e) {
 
   songs.appendChild(newOption);
 
-  // Create Option for Songs
   const audioHandler = new AudioHandler(new Audio(audioURL));
   let audioVisualizer = new AudioVisualizer(audioHandler.getAudio());
+  let audioContextDto = new AudioContextDto(audioVisualizer, audioHandler);
+
+  const audioInstance = getAudioInstance();
+  audioInstance.addToDict(audioURL, audioContextDto);
 
   deleteButton.onclick = function (e) {
     let evtTgt = e.target;

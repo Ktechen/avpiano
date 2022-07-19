@@ -153,3 +153,10 @@ function currentTimeListener() {
 function loopListener(bool) {
   audioHandler.setLoop(bool);
 }
+/**
+ * 
+ * @returns AudioInstance Object
+ */
+export function getAudioInstance(){
+  return audioInstance;
+}

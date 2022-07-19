@@ -27,6 +27,7 @@ export class AudioInstance {
   }
 
   addToDict(index, AudioContextDto) {
+    this.InstanceDict
     this.InstanceDict[index] = AudioContextDto;
   }
 }
