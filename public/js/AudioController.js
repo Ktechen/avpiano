@@ -22,7 +22,7 @@ function initListener() {
   getUserMedia();
 
   // Start button
-  const startButton = document.getElementById("start-button");
+  const startButton = document.getElementById("play-button");
 
   startButton.addEventListener("click", startButtonListener);
   startButton.addEventListener(
@@ -80,7 +80,7 @@ function initListener() {
     audioVisualizer = dictElement._AudioVisualizer;
     console.log(dictElement)
   });
-  
+
 }
 
 /**
@@ -171,7 +171,7 @@ function getUserMedia(){
         )
         // Success callback
         .then(function (stream) {
-          
+
         })
 
         // Error callback
