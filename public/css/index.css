@@ -66,7 +66,6 @@ p {
 }
 
 #visualizer {
-    max-height: 1em;
     min-width: 24em;
     display: flex;
     flex: 8;
@@ -78,8 +77,15 @@ p {
     border-radius: 30px;
     margin-bottom: 1em;
 }
+
 #savedTitel{
+    max-height: 1em;
     background: #2a6495;
+    border: 2px solid rgba(205, 201, 212, 0.58);
+    box-shadow: inset 0 2px 0 0 rgba(23, 90, 121, 0.68);
+    padding: 0.5em 1em 1em 1em;
+    border-radius: 30px;
+    margin-bottom: 1em;
 }
 
 /*Tasten*/
@@ -173,85 +179,9 @@ button {
     border-radius: 8px;
     padding: 0.25em;
     box-shadow: 0 3px #043979;
-    font-family: 'VT323';
+    font-family: 'VT323', serif;
     font-size: 1em;
 }
-
-.play,.pause {
-    width: 45px;
-    height: 45px;
-    float:left;
-    padding-right: 20px;
-}
-/*TODO add icon + url*/
-.pause {
-    /*background: url('') no-repeat 10px 0;*/
-}
-.play {
-    /*background: url('') no-repeat -46px 0;*/
-}
-
-
-.reset {
-    /*background: url('') no-repeat -69px -62px;*/
-    width: 25px;
-    height: 22px;
-    float: right;
-    margin-right: -25px;
-    margin-top: -5px;
-}
-
-
-.progress {
-    width: 250px;
-    height: 10px;
-    position: relative;
-    background-color: grey;
-    margin-left: 65px;
-}
-.progressbar {
-    width: .5px;
-    height: 10px;
-    position: absolute;
-    background-color: black;
-}
-
-.audio {
-    display:none;
-}
-
-.clipLink {
-    display:none;
-}
-
-
-.title {
-    font-family: Arial, "Helvetica", Helvetica, sans-serif;
-    color: #FFFFFF;
-    text-align: left;
-    padding-bottom: 10px;
-    #margin-left: 30px;
-    font-size: 15px
-}
-
-.clipContainer {
-    margin: auto;
-    margin-bottom: 10px;
-    border-radius: 10px;
-    width: 320px;
-}
-
-
-button#play-button {
-    font-size: 0.8em;
-    padding: 0.3em 0.4em;
-}
-
-button#pause-button {
-    font-size: 0.8em;
-    padding: 0.25em 0.5em;
-}
-
 
 button#beat {
     background: #2ae2fa;
@@ -284,6 +214,73 @@ button:active {
     inset 2px 2px 3px rgba(0, 0, 0, .6);
 }
 
+/*SongPlayer*/
+.play,.pause {
+    width: 45px;
+    height: 45px;
+    float:left;
+    padding-right: 20px;
+}
+/*TODO add icon + url*/
+.pause {
+    /*background: url('') no-repeat 10px 0;*/
+}
+.play {
+    /*background: url('') no-repeat -46px 0;*/
+}
+
+
+.reset {
+    /*background: url('') no-repeat -69px -62px;*/
+    width: 25px;
+    height: 22px;
+    float: right;
+    margin-right: -25px;
+    margin-top: -5px;
+}
+
+
+.progress {
+    width: 250px;
+    height: 10px;
+    position: relative;
+    background-color: #ffffff;
+    margin-left: 65px;
+    border-radius: 30px;
+}
+.progressbar {
+    width: 5px;
+    height: 10px;
+    position: absolute;
+    background-color: black;
+    border-radius: 30px;
+}
+
+.audio {
+    display:none;
+}
+
+.clipLink {
+    display:none;
+}
+
+
+.title {
+    font-family:'Cooper Black', monospace;
+    color: #FFFFFF;
+    text-align: left;
+    padding-bottom: 10px;
+    #margin-left: 30px;
+    font-size: 18px
+}
+
+.clipContainer {
+    margin: auto;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    width: 320px;
+}
+
 /* Range */
 
 input[type=range] {
@@ -299,7 +296,6 @@ input[type=range]::-webkit-slider-runnable-track {
     width: 100%;
     height: 0.5em;
     cursor: pointer;
-    animate: 0.2s;
     background: #ffffff;
     border: 2px solid #083a76;
     border-radius: 6px;
@@ -330,12 +326,12 @@ input[type=range]::-moz-range-track {
     width: 100%;
     height: 8px;
     cursor: pointer;
-    animate: 0.2s;
     box-shadow: 1px 1px 1px #000000, 0 0 1px #0d0d0d;
     background: #3071a9;
     border-radius: 1px;
     border: 0 solid #010101;
 }
+
 input[type=range]::-moz-range-thumb {
     box-shadow: 1px 1px 1px #000000, 0 0 1px #0d0d0d;
     border: 1px solid #000000;
@@ -349,7 +345,6 @@ input[type=range]::-ms-track {
     width: 100%;
     height: 8px;
     cursor: pointer;
-    animate: 0.2s;
     background: transparent;
     border-color: transparent;
     border-width: 16px 0;
