@@ -6,10 +6,8 @@ import { AudioContextDto } from "./AudioContextDto.js";
 
 const record = document.querySelector("#record");
 const saveSong = document.querySelector("#save_song");
-const soundClips = document.querySelector(".sound-clips");
 
 // disable saveSong button while not recording
-
 saveSong.disabled = true;
 
 let audioContext = getPianoAudioContext();
@@ -18,9 +16,7 @@ let dest = audioContext.createMediaStreamDestination();
 export function getMediaStreamDestination() {
   return dest;
 }
-//main block for doing the audio recording
 
-const constraints = { audio: true };
 let chunks = [];
 
 const mediaRecorder = new MediaRecorder(dest.stream);
