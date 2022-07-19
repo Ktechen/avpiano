@@ -48,34 +48,15 @@ saveSong.onclick = function () {
 };
 
 mediaRecorder.onstop = function (e) {
-  console.log("data available after MediaRecorder.stop() called.");
-
-  const clipContainer = document.createElement("article");
-  const clipLabel = document.createElement("p");
   let clipName = document.getElementById("song_name").value;
-  const audio = document.createElement("audio");
-  const deleteButton = document.createElement("button");
-
-  clipContainer.classList.add("clip");
-  audio.setAttribute("controls", "");
-  deleteButton.textContent = "Delete";
-  deleteButton.className = "delete";
 
   if (!clipName) {
     clipName = "My unnamed clip";
   }
-  clipLabel.textContent = clipName;
 
-  clipContainer.appendChild(clipLabel);
-  clipContainer.appendChild(audio);
-  clipContainer.appendChild(deleteButton);
-  soundClips.appendChild(clipContainer);
-
-  audio.controls = true;
   const blob = new Blob(chunks, { type: "audio/ogg; codecs=opus" });
   chunks = [];
   const audioURL = window.URL.createObjectURL(blob);
-  audio.src = audioURL;
   console.log("recorder stopped");
 
   //Create Option
@@ -92,11 +73,6 @@ mediaRecorder.onstop = function (e) {
 
   const audioInstance = getAudioInstance();
   audioInstance.addToDict(audioURL, audioContextDto);
-
-  deleteButton.onclick = function (e) {
-    let evtTgt = e.target;
-    evtTgt.parentNode.parentNode.removeChild(evtTgt.parentNode);
-  };
 };
 
 mediaRecorder.ondataavailable = function (e) {
