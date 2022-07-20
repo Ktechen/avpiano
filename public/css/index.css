@@ -130,7 +130,7 @@ p {
 
 div#E {
     margin-right: 4px;
-    background: #e5e5e5;
+    background: #ffffff;
 }
 
 input, select {
@@ -221,24 +221,23 @@ button:active {
     float:left;
     padding-right: 20px;
 }
-/*TODO add icon + url*/
+/*Icons von https://icons8.com/*/
 .pause {
-    /*background: url('') no-repeat 10px 0;*/
+    background: url('public/images/icons8-pause.png') no-repeat 10px 0;
+
 }
 .play {
-    /*background: url('') no-repeat -46px 0;*/
+    background: url('public/images/icons8-play.png') no-repeat 10px 0;
 }
 
-
 .reset {
-    /*background: url('') no-repeat -69px -62px;*/
+    background: url('public/images/icons8-reset.png') no-repeat -69px -62px;
     width: 25px;
     height: 22px;
     float: right;
     margin-right: -25px;
     margin-top: -5px;
 }
-
 
 .progress {
     width: 250px;
@@ -248,6 +247,7 @@ button:active {
     margin-left: 65px;
     border-radius: 30px;
 }
+
 .progressbar {
     width: 5px;
     height: 10px;
