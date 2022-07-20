@@ -14,8 +14,8 @@ function createNoteTable() {
 	for (let i=0; i< 9; i++) {
 	  noteFreq[i] = [];
 	}
-  
-  
+
+
 	noteFreq[4]["C"] = 261.625565300598634;
 	noteFreq[4]["C#"] = 277.182630976872096;
 	noteFreq[4]["D"] = 293.664767917407560;
@@ -28,6 +28,7 @@ function createNoteTable() {
 	noteFreq[4]["A"] = 440.000000000000000;
 	noteFreq[4]["A#"] = 466.163761518089916;
 	noteFreq[4]["B"] = 493.883301256124111;
+
 
 	return noteFreq;
   }
