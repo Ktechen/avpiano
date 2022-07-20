@@ -58,6 +58,11 @@ export class AudioHandler {
         return this.audio.currentTime;
     }
 
+    enableMute(){
+        console.log("mute");
+        this.setVolume(0);
+    }
+
     resetAll(){
         console.log("resetAll");
         this.audio.currentTime = 0;
