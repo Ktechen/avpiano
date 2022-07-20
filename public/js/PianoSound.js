@@ -1,10 +1,9 @@
-import {PianoDataSet} from "./PianoDataSet.js";
-
 let audioContext = new (window.AudioContext || window.webkitAudioContext)();
 let oscList = [];
 let mainGainNode = null;
 let keyboard = document.querySelector(".keys");
 let volumeControl = document.getElementById("volume x mt1");
+let noteFreq = null;
 let customWaveform = null;
 let sineTerms = null;
 let cosineTerms = null;
@@ -95,3 +94,6 @@ function noteReleased(event) {
         delete dataset["pressed"];
     }
 }
+
+
+setup();
