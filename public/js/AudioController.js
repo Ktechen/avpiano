@@ -1,5 +1,3 @@
-import { AudioHandler } from "./AudioHandler.js";
-import { AudioVisualizer } from "./AudioVisualizer.js";
 import {AudioInstance} from "./AudioInstance.js";
 
 let audioHandler;
@@ -80,7 +78,7 @@ function initListener() {
     audioVisualizer = dictElement._AudioVisualizer;
     console.log(dictElement)
   });
-  
+
 }
 
 /**
