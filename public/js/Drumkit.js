@@ -93,7 +93,7 @@ function runBeat() {
  
     flag = !flag;
 
-    let kick = new Kick(context);
+    let kick = new Snare(context);
     setTimeout(function loop () {
         kick.trigger(context.currentTime);
       
