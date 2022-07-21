@@ -2,7 +2,7 @@
 
 ## Beschreibung
 
-"PianoFlow" ist eine musikalische Anwendung zum Erstellen von eigenen Soundtracks. Mithilfe der ausgewählten Klaviertasten können Melodien live gespielt, aufgenommen und gespeichert werden. Die Effekt-Buttons kreieren weitere Möglichkeiten der Bearbeitung und Wiedergabe.
+'PianoFlow' ist eine musikalische Anwendung zum Erstellen von eigenen Soundtracks. Mithilfe der ausgewählten Klaviertasten können Melodien live gespielt, aufgenommen und gespeichert werden. Die Effekt-Buttons kreieren weitere Möglichkeiten der Bearbeitung und Wiedergabe.
 
 ## **Features**
 folgend eine visuelle Darstellung der Features:

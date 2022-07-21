@@ -11,6 +11,7 @@
   "license": "ISC",
   "homepage": "https://github.com/Ktechen/avpiano#readme",
   "dependencies": {
-    "live-server": "^1.1.0"
+    "live-server": "^1.1.0",
+    "tone": "^14.7.77"
   }
 }

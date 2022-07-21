@@ -67,8 +67,6 @@ p {
 
 #visualizer {
     min-width: 24em;
-    display: flex;
-    flex: 8em;
     justify-content: center;
     background: rgb(255, 255, 255);
     border: 2px solid rgba(205, 201, 212, 0.58);
@@ -79,14 +77,22 @@ p {
 }
 
 #savedTitel{
-    max-height: 1em;
-    background: #2a6495;
-    border: 2px solid rgba(205, 201, 212, 0.58);
-    box-shadow: inset 0 2px 0 0 rgba(23, 90, 121, 0.68);
-    padding: 0.5em 1em 1em 1em;
+    min-width: 27em;
     border-radius: 30px;
     margin-bottom: 1em;
 }
+
+#octave-dropdown{
+    min-width: 27em;
+    max-height: 6em;
+    background: rgba(255, 255, 255, 0.7);
+    border: 5px solid #083a76;
+    box-shadow: 0 0 4px #144a8d;
+    border-radius: 30px;
+    margin-bottom: 1em;
+}
+
+/*TODO DropDownBox umstylen*/
 
 /*Tasten*/
 .note {
@@ -147,6 +153,10 @@ input, select {
     box-shadow: inset 0 0 3px #091658;
 }
 
+.octave-dropdown {
+
+}
+
 /* Idee wenn Zeit reicht*/
 .downloader {
     margin: 2em 0 2em 0;
@@ -183,7 +193,7 @@ button {
     font-size: 1em;
 }
 
-button#beat {
+button#snare {
     background: #2ae2fa;
     font-size: 0.9em;
     padding: 0.5em 0.5em;
@@ -212,73 +222,6 @@ button:active {
     background: #78f4ff;
     box-shadow: inset -2px -2px 3px rgba(193, 193, 193, 0.6),
     inset 2px 2px 3px rgba(0, 0, 0, .6);
-}
-
-/*SongPlayer*/
-.play,.pause {
-    width: 45px;
-    height: 45px;
-    float:left;
-    padding-right: 20px;
-}
-/*Icons von https://icons8.com/*/
-.pause {
-    background: url('public/images/icons8-pause.png') no-repeat 10px 0;
-
-}
-.play {
-    background: url('public/images/icons8-play.png') no-repeat 10px 0;
-}
-
-.reset {
-    background: url('public/images/icons8-reset.png') no-repeat -69px -62px;
-    width: 25px;
-    height: 22px;
-    float: right;
-    margin-right: -25px;
-    margin-top: -5px;
-}
-
-.progress {
-    width: 250px;
-    height: 10px;
-    position: relative;
-    background-color: #ffffff;
-    margin-left: 65px;
-    border-radius: 30px;
-}
-
-.progressbar {
-    width: 5px;
-    height: 10px;
-    position: absolute;
-    background-color: black;
-    border-radius: 30px;
-}
-
-.audio {
-    display:none;
-}
-
-.clipLink {
-    display:none;
-}
-
-
-.title {
-    font-family:'Cooper Black', monospace;
-    color: #FFFFFF;
-    text-align: left;
-    padding-bottom: 10px;
-    #margin-left: 30px;
-    font-size: 18px
-}
-
-.clipContainer {
-    margin: auto;
-    margin-bottom: 10px;
-    border-radius: 10px;
-    width: 320px;
 }
 
 /* Range */
@@ -353,13 +296,13 @@ input[type=range]::-ms-track {
 input[type=range]::-ms-fill-lower {
     background: #2a6495;
     border: 0.2px solid #010101;
-    border-radius: 3px;
+    border-radius: 30px;
     box-shadow: 1px 1px 1px #000000, 0 0 1px #0d0d0d;
 }
 input[type=range]::-ms-fill-upper {
     background: #31689e;
     border: 0.2px solid #010101;
-    border-radius: 3px;
+    border-radius: 30px;
     box-shadow: 1px 1px 1px #000000, 0 0 1px #0d0d0d;
 }
 input[type=range]::-ms-thumb {
@@ -367,7 +310,7 @@ input[type=range]::-ms-thumb {
     border: 1px solid #000000;
     height: 36px;
     width: 16px;
-    border-radius: 3px;
+    border-radius: 30px;
     background: #ffffff;
     cursor: pointer;
 }
