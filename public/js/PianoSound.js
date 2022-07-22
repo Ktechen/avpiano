@@ -62,11 +62,10 @@ function playTone(freq) {
   osc = audioContext.createOscillator();
   osc.connect(mainGainNode);
   let dest = getMediaStreamDestination();
-  osc.connect(dest);
+  mainGainNode.connect(dest);
 
   let type = "sine";
 
-  
   if (type == "custom") {
     osc.setPeriodicWave(customWaveform);
   } else {
