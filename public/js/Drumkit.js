@@ -1,5 +1,5 @@
 let context = new (window.AudioContext || window.webkitAudioContext)();
-let record = document.getElementById("beat");
+
 let flag = false; 
 let volumeControl = document.getElementById("volume x mt1");
 
@@ -11,6 +11,10 @@ function Kick(context) {
 function Snare(context) {
 	this.context = context;
 }
+
+function SnapKick(context) {
+	this.context = context;
+};
 
 
 Snare.prototype.noiseBuffer = function() {
@@ -68,7 +72,6 @@ Kick.prototype.setup = function() {
 
 Kick.prototype.trigger = function(time) {
 	this.setup();
-    console.log("kicktriggered")
 
 	this.osc.frequency.setValueAtTime(150, time);
 	this.gain.gain.setValueAtTime(1, time);
@@ -81,21 +84,65 @@ Kick.prototype.trigger = function(time) {
 	this.osc.stop(time + 0.5);
 }
 
+SnapKick.prototype.setup = function() {
+    
+	this.osc = this.context.createOscillator();
+	this.gain = this.context.createGain();
+	this.osc.connect(this.gain);
+	this.gain.connect(this.context.destination)
+};
 
+SnapKick.prototype.trigger = function(time) {
+	this.setup();
 
-function run() {
+	this.osc.frequency.setValueAtTime(500, time);
+	this.gain.gain.setValueAtTime(1, time);
 
-    record.addEventListener("mousedown", runBeat, false);
+	this.osc.frequency.exponentialRampToValueAtTime(0.01, time + 0.25);
+	this.gain.gain.exponentialRampToValueAtTime(0.01, time + 0.4);
 
+	this.osc.start(time);
+
+	this.osc.stop(time + 0.3);
+};
+
+function runSnare() {
+
+	console.log("snare");
+	let snare = new Snare(context);
+	runBeat(snare);
 }
 
-function runBeat() {
+function runKick() {
+
+	let kick = new Kick(context);
+	runBeat(kick);
+}
+
+function runSnapKick() {
+
+	let snapkick = new SnapKick(context);
+	runBeat(snapkick);
+}
+
+
+
+function setup() {
+	let snareButton = document.getElementById("snare");
+	let kickButton = document.getElementById("kick");
+	let skButton = document.getElementById("snapkick");
+    snareButton.addEventListener("mousedown", runSnare);
+	kickButton.addEventListener("mousedown", runKick);
+	skButton.addEventListener("mousedown", runSnapKick);
+}
+
+function runBeat(beatkit) {
  
     flag = !flag;
 
-    let kick = new Snare(context);
+    
     setTimeout(function loop () {
-        kick.trigger(context.currentTime);
+        beatkit.trigger(context.currentTime);
       
         if (flag) 
           setTimeout(loop, 1000);
@@ -104,4 +151,4 @@ function runBeat() {
 
 }
 
-run(); 
+setup(); 
