@@ -1,6 +1,6 @@
 let context = new (window.AudioContext || window.webkitAudioContext)();
 let record = document.getElementById("beat");
-let flag = false; 
+let flag = false;
 let volumeControl = document.getElementById("volume x mt1");
 
 
@@ -9,6 +9,10 @@ function Kick(context) {
 };
 
 function Snare(context) {
+	this.context = context;
+};
+
+function SnapKick(context) {
 	this.context = context;
 };
 

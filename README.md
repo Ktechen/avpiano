@@ -7,7 +7,8 @@
 ## **Features**
 
 folgend eine kurze visuelle Darstellung der Anwendung und deren Funktionen:
-**Bild von Anwendung*
+TODO: Bilder/ Gifs der Funktionen einfügen
+
 ### 1. Sound Visualisierung
 Hier werden die Audio-Inputs analysiert, gezeichnet und in einer Animation wiedergegeben.
 ### 2. Piano
@@ -24,20 +25,20 @@ Was passiert wenn kein Titel eingegeben wurde?
 Die gespeicherten Titel werden in einer chronologischen Liste aus Playern dargestellt.
 Die Wiedergabe der separaten Titel kann einzeln über die Button des jeweiligen Players gestartet, gestoppt und zurückgesetzt werden.
 
-TODO: Soll die Anpassung der Abspielgeschwindigkeit hier auch rein?
+TODO: Soll die Anpassung der Abspielgeschwindigkeit hier rein?
 
 ### 4. anwendbare Effekte
 
 ## 4.1 Beats
 Beats werden über die 3 Buttons in der oberen linken Ecke durch einen Klick gestartet.
-Ein weiterer Klick beendet den Beat wieder.
+Ein weiterer Klick beendet den Beat wieder. Jeder Button ist mit einem anderen BeatSample belegt.
 ## 4.2 OktavenWahl 
 In der Oktavenwahl kann im Dropdown aus 8 verschiedenen Tonhöhen gewählt werden. 
 Dabei wird die Frequenz der Töne entsprechend der gewählten Oktave geändert.
 ## 4.3 Lautstärke
 TODO: Gilt das für alles oder nur gespeicherte Titel?
 ## 4.4 Wiedergabegeschwindigkeit 
-TODO: wird es im player gemacht oder hier
+TODO: wird es im player gemacht oder hier, worauf wirkt sich alles aus?
 ### 5. Laufzeit des Titels
 Hier wird die Laufzeit des spielenden Titels dargestellt.
 ## Demo
