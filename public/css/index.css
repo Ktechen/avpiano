@@ -168,6 +168,7 @@ input, select {
     margin-bottom: 1em;
 }
 
+/*TODO Dropdown Box Rund machen*/
 .octave-dropdown {
 
 }
@@ -222,6 +223,13 @@ button#snapkick{
     background: #5903f8;
     font-size: 0.9em;
     padding: 0.5em 0.5em;
+}
+
+button#PlaySavedTitel,#StopSavedTitel,#ResetTitel{
+    font-size: 0.9em;
+    padding: 0.5em 0.5em;
+    border-radius: 50px;
+    margin-bottom: 10px;
 }
 
 button:focus {
