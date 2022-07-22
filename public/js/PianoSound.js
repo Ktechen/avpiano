@@ -1,56 +1,30 @@
 import { getMediaStreamDestination } from "./Recorder.js";
+import { PianoDataSet } from "./PianoDataSet.js";
 
 let audioContext = new (window.AudioContext || window.webkitAudioContext)();
 let oscList = [];
 let mainGainNode = null;
 let keyboard = document.querySelector(".keys");
 let volumeControl = document.getElementById("volume x mt1");
-let noteFreq = null;
 let customWaveform = null;
 let sineTerms = null;
 let cosineTerms = null;
 let osc;
 
+let noteFreq = new PianoDataSet().createNoteTable();
+
+const octaveDropdown = document.getElementById("octave-dropdown");
+octaveDropdown.addEventListener("change", (e) => changeOctave(e.target.value));
+
 export function getPianoAudioContext() {
   return audioContext;
 }
 
-function createNoteTable() {
-  let noteFreq = [];
-  for (let i = 0; i < 9; i++) {
-    noteFreq[i] = [];
-  }
-
-  noteFreq[4]["C"] = 261.625565300598634;
-  noteFreq[4]["C#"] = 277.182630976872096;
-  noteFreq[4]["D"] = 293.66476791740756;
-  noteFreq[4]["D#"] = 311.12698372208091;
-  noteFreq[4]["E"] = 329.627556912869929;
-  noteFreq[4]["F"] = 349.228231433003884;
-  noteFreq[4]["F#"] = 369.994422711634398;
-  noteFreq[4]["G"] = 391.995435981749294;
-  noteFreq[4]["G#"] = 415.304697579945138;
-  noteFreq[4]["A"] = 440.0;
-  noteFreq[4]["A#"] = 466.163761518089916;
-  noteFreq[4]["B"] = 493.883301256124111;
-
-  return noteFreq;
-}
-
 function setup() {
-  noteFreq = createNoteTable();
-
-  noteFreq.forEach(function (keys, idx) {
-    let keyList = Object.entries(keys);
-
-    keyList.forEach(function (key) {
-      setupKey(key[0], 4, key[1], document.getElementById(key[0]));
-    });
-  });
+  changeOctave(4);
 
   mainGainNode = audioContext.createGain();
   mainGainNode.connect(audioContext.destination);
-  //mainGainNode.gain.value = volumeControl.value;
 
   sineTerms = new Float32Array([0, 0, 1, 0, 1]);
   cosineTerms = new Float32Array(sineTerms.length);
@@ -59,6 +33,18 @@ function setup() {
   for (let i = 0; i < 9; i++) {
     oscList[i] = {};
   }
+}
+
+function changeOctave(layer) {
+  noteFreq.forEach((keys, index) => {
+    let keyList = Object.entries(keys);
+    if (index === Number(layer)) {
+      keyList.forEach((key) => {
+        setupKey(key[0], layer, key[1], document.getElementById(key[0]));
+      });
+      console.log(keyList);
+    }
+  });
 }
 
 function setupKey(note, octave, freq, key) {
@@ -77,9 +63,10 @@ function playTone(freq) {
   osc.connect(mainGainNode);
   let dest = getMediaStreamDestination();
   osc.connect(dest);
-  
+
   let type = "sine";
-  console.log("osc + " + osc);
+
+  
   if (type == "custom") {
     osc.setPeriodicWave(customWaveform);
   } else {

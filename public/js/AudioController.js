@@ -1,5 +1,3 @@
-import { AudioHandler } from "./AudioHandler.js";
-import { AudioVisualizer } from "./AudioVisualizer.js";
 import { AudioInstance } from "./AudioInstance.js";
 
 let audioHandler;
@@ -66,6 +64,22 @@ function initListener() {
   startButton.addEventListener("click", () => {
     setInterval(() => (CurrentTime.textContent = currentTimeListener()), 500);
   });
+
+  //mute
+  const enableMute = document.getElementById("enableMute-button");
+  enableMute.addEventListener("click", muteListener);
+
+  //mute
+  const enableAllMute = document.getElementById("enableAllMute-button");
+  enableAllMute.addEventListener("click", muteAllListener);
+
+  //stop all
+  const stopAll = document.getElementById("stopAll-button");
+  stopAll.addEventListener("click", stopAllListener);
+
+  //start all
+  const startAll = document.getElementById("startAll-button");
+  startAll.addEventListener("click", startAllListener);
 
   // Change chosen sound
   const select = document.getElementById("song_names");
@@ -154,9 +168,43 @@ function loopListener(bool) {
   audioHandler.setLoop(bool);
 }
 /**
- * 
+ *
  * @returns AudioInstance Object
  */
-export function getAudioInstance(){
+export function getAudioInstance() {
   return audioInstance;
+}
+/**
+ * Mute Listener
+ */
+function muteListener() {
+  audioHandler.enableMute();
+}
+
+/**
+ * MuteAll Listener
+ */
+function muteAllListener() {
+  for (const [key, value] of Object.entries(audioInstance.InstanceDict)) {
+    value._AudioHandler.enableMute();
+  }
+}
+
+/**
+ *  StartAll Listener
+ */
+function startAllListener() {
+  for (const [key, value] of Object.entries(audioInstance.InstanceDict)) {
+    value._AudioHandler.startAudio();
+  }
+}
+
+/**
+ * StopAll listener
+ */
+function stopAllListener() {
+  for (const [key, value] of Object.entries(audioInstance.InstanceDict)) {
+    console.log(key, value);
+    value._AudioHandler.pauseAudio();
+  }
 }
