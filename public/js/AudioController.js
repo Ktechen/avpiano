@@ -1,8 +1,8 @@
-import {AudioInstance} from "./AudioInstance.js";
+import { AudioInstance } from "./AudioInstance.js";
 
 let audioHandler;
 let audioVisualizer;
-let audioInstance
+let audioInstance;
 
 initAudioHandler();
 
@@ -15,12 +15,8 @@ function initAudioHandler() {
 }
 
 function initListener() {
-
-    //Record
-    getUserMedia();
-
-    // Start button
-    const startButton = document.getElementById("start-button");
+  // Start button
+  const startButton = document.getElementById("start-button");
 
     startButton.addEventListener("click", startButtonListener);
     startButton.addEventListener(
@@ -194,7 +190,13 @@ function setCurrentTimeListener(time) {
 function loopListener(bool) {
     audioHandler.setLoop(bool);
 }
-
+/**
+ *
+ * @returns AudioInstance Object
+ */
+export function getAudioInstance() {
+  return audioInstance;
+}
 /**
  * Mute Listener
  */
