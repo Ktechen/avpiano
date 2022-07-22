@@ -38,26 +38,18 @@ function initListener() {
     const startAll = document.getElementById("startAll-button");
     const select = document.getElementById("song_names");
 
-
-
     //Init all
     document.addEventListener('DOMContentLoaded', ()=> {
-        EndingTime.textContent = endingTimeListener();
+        EndingTime.textContent = endingTimeListener().toString();
         volumeButton.value = volumeStartRateDefault;
         playbackRateButton.value = playbackRateDefault;
         timeSlide.value = timeSlideRateDefault;
     });
 
-
     // Start button
     startButton.addEventListener("click", startButtonListener);
     startButton.addEventListener("click", () => {
         playbackRateButton.value = getPlaybackRateButtonListener;
-    });
-
-    // Time Span
-
-    startButton.addEventListener("click", () => {
         setInterval(() => (CurrentTime.textContent = getCurrentTimeListener()), intervalTimerDefault);
         setInterval(()=> {timeSlide.value = getCurrentTimeListener()}, intervalTimerDefault);
     });
@@ -89,7 +81,6 @@ function initListener() {
     // loop Button
     loopButtonFalse.addEventListener("click", () => loopListener(false));
     loopButtonTrue.addEventListener("click", () => loopListener(true));
-
 
     //mute
     enableMute.addEventListener("click", muteListener)
