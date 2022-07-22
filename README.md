@@ -19,8 +19,6 @@ Die Tasten erzeugen solange einen Ton, wie die angeklickt und gehalten werden.
 Dazu muss zuerst der "Rec" Button betätigt werden, um eine Aufnahme zu starten.
 Danach wird die gewünschte Melodie auf der Klaviatur eingespielt und mit einem erneuten klicken auf "Save" wird die Aufnahme beendet.
 
-Was passiert wenn kein Titel eingegeben wurde?
-
 ### 3. gespeicherte Titel
 Die gespeicherten Titel werden in einer chronologischen Liste aus Playern dargestellt.
 Die Wiedergabe der separaten Titel kann einzeln über die Button des jeweiligen Players gestartet, gestoppt und zurückgesetzt werden.
@@ -46,7 +44,7 @@ Hier wird die Laufzeit des spielenden Titels dargestellt.
 TODO: Wie wollen wir die Demo machen
 Genau den Userflow planen
 
-##Installation
+## Installation
 Zum Starten der Anwendung wird Node.js benötigt. Bitte der Verlinkung zur Installation folgen, falls nötig. Ist Node.js installiert. Dann kann die Anwendung über die Eingabe des Befehls npm start in das Terminal gestartet werden. Meist öffnet sich der Browser automatisch, sollte dies nicht der Fall sein, so ist 'PianoFlow' über http://localhost:3000 aufrufbar.
 Wir empfehlen den Browser Google Chrome, Chrome basierte Browser, oder Microsoft Edge zu nutzen in anderen Browsern kann es sein, dass die Anwendung nicht richtig funktioniert.
 
@@ -61,12 +59,16 @@ npm start
 open http://localhost:3000
 ```
 
-##Projekt
+## Projekt
 'PianoFlow' ist das Ergebnis der Projektarbeit im Modul "Multimedia Audio- und Videotechnik" im Sommersemster 2022. "PianoFlow" soll eine Anwendung zum Erstellen von eigenen Soundtracks bieten. Mithilfe des Designs und den anwendbaren Features soll das Kreieren von Musik leicht und spielerisch werden.
 
 
-##genutzte Technologien
+## genutzte Technologien
 Web Audio API
+
+## FAQ
+Was passiert wenn kein Titel eingegeben wurde?
+- Name wird mit einen DefaultWert belegt
 
 ## Autoren
 Kevin Techen
