@@ -6,11 +6,11 @@ let volumeControl = document.getElementById("volume x mt1");
 
 function Kick(context) {
 	this.context = context;
-};
+}
 
 function Snare(context) {
 	this.context = context;
-};
+}
 
 
 Snare.prototype.noiseBuffer = function() {
@@ -23,7 +23,7 @@ Snare.prototype.noiseBuffer = function() {
 	}
 
 	return buffer;
-};
+}
 
 Snare.prototype.setup = function() {
 	this.noise = this.context.createBufferSource();
@@ -40,7 +40,7 @@ Snare.prototype.setup = function() {
     this.oscEnvelope = this.context.createGain();
     this.osc.connect(this.oscEnvelope);
     this.oscEnvelope.connect(this.context.destination);
-};
+}
 
 Snare.prototype.trigger = function(time) {
 	this.setup();
@@ -56,7 +56,7 @@ Snare.prototype.trigger = function(time) {
 
 	this.osc.stop(time + 0.2);
 	this.noise.stop(time + 0.2);
-};
+}
 
 Kick.prototype.setup = function() {
     
@@ -64,7 +64,7 @@ Kick.prototype.setup = function() {
 	this.gain = this.context.createGain();
 	this.osc.connect(this.gain);
 	this.gain.connect(this.context.destination)
-};
+}
 
 Kick.prototype.trigger = function(time) {
 	this.setup();
@@ -79,7 +79,7 @@ Kick.prototype.trigger = function(time) {
 	this.osc.start(time);
 
 	this.osc.stop(time + 0.5);
-};
+}
 
 
 
