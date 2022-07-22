@@ -1,8 +1,13 @@
-import { AudioInstance } from "./AudioInstance.js";
+import {AudioInstance} from "./AudioInstance.js";
 
 let audioHandler;
 let audioVisualizer;
 let audioInstance;
+
+const volumeStartRateDefault = 0.3;
+const playbackRateDefault = 1;
+const timeSlideRateDefault = 0;
+const intervalTimerDefault = 250;
 
 initAudioHandler();
 
@@ -15,84 +20,90 @@ function initAudioHandler() {
 }
 
 function initListener() {
-  // Start button
-  const startButton = document.getElementById("start-button");
 
+    const startButton = document.getElementById("start-button");
+    const CurrentTime = document.getElementById("CurrentTime");
+    const pauseButton = document.getElementById("pause-button");
+    const restartButton = document.getElementById("restart-button");
+    const restartAllButton = document.getElementById("restartAll-button");
+    const volumeButton = document.getElementById("volume-button");
+    const timeSlide = document.getElementById("timeSlide-Button");
+    const playbackRateButton = document.getElementById("playbackRate-button");
+    const loopButtonFalse = document.getElementById("loopFalse-button");
+    const loopButtonTrue = document.getElementById("loopTrue-button");
+    const EndingTime = document.getElementById("EndingTime");
+    const enableMute = document.getElementById("enableMute-button");
+    const enableAllMute = document.getElementById("enableAllMute-button");
+    const stopAll = document.getElementById("stopAll-button");
+    const startAll = document.getElementById("startAll-button");
+    const select = document.getElementById("song_names");
+
+
+
+    //Init all
+    document.addEventListener('DOMContentLoaded', ()=> {
+        EndingTime.textContent = endingTimeListener();
+        volumeButton.value = volumeStartRateDefault;
+        playbackRateButton.value = playbackRateDefault;
+        timeSlide.value = timeSlideRateDefault;
+    });
+
+
+    // Start button
     startButton.addEventListener("click", startButtonListener);
-    startButton.addEventListener(
-        "click",
-        () => (playbackRateButton.value = getPlaybackRateButtonListener)
-    );
-    startButton.addEventListener(
-        "click",
-        () => (volumeButton.value = getVolumeButtonListener)
-    );
+    startButton.addEventListener("click", () => {
+        playbackRateButton.value = getPlaybackRateButtonListener;
+    });
+
+    // Time Span
+
+    startButton.addEventListener("click", () => {
+        setInterval(() => (CurrentTime.textContent = getCurrentTimeListener()), intervalTimerDefault);
+        setInterval(()=> {timeSlide.value = getCurrentTimeListener()}, intervalTimerDefault);
+    });
 
     //Pause Button
-    const pauseButton = document.getElementById("pause-button");
     pauseButton.addEventListener("click", pauseButtonListener);
 
     // Restart Button
-    const restartButton = document.getElementById("restart-button");
     restartButton.addEventListener("click", restartButtonListener);
 
     // RestartAll Button
-    const restartAllButton = document.getElementById("restartAll-button");
     restartAllButton.addEventListener("click", restartAllButtonListener);
 
     // volume Button
-    const volumeButton = document.getElementById("volume-button");
-    volumeButton.addEventListener("change", () =>
-        volumeButtonListener(volumeButton.value)
-    );
+    volumeButton.addEventListener("change", () => {
+        volumeButtonListener(volumeButton.value);
+    });
 
     // Time slide Button
-    const timeSlide = document.getElementById("timeSlide-Button");
     timeSlide.addEventListener("change", () =>
         setCurrentTimeListener(timeSlide.value)
     );
 
     // playbackRate Button
-    const playbackRateButton = document.getElementById("playbackRate-button");
     playbackRateButton.addEventListener("change", () =>
         playbackRateButtonListener(playbackRateButton.value)
     );
 
     // loop Button
-    const loopButtonFalse = document.getElementById("loopFalse-button");
     loopButtonFalse.addEventListener("click", () => loopListener(false));
-
-    const loopButtonTrue = document.getElementById("loopTrue-button");
     loopButtonTrue.addEventListener("click", () => loopListener(true));
 
-    // Time Span
-    const CurrentTime = document.getElementById("CurrentTime");
-    startButton.addEventListener("click", () => {
-        setInterval(() => (CurrentTime.textContent = currentTimeListener()), 500);
-    });
-
-    //EndingTime
-    const EndingTime = document.getElementById("EndingTime");
-    startButton.addEventListener("click", () => EndingTime.textContent = endingTimeListener());
 
     //mute
-    const enableMute = document.getElementById("enableMute-button");
     enableMute.addEventListener("click", muteListener)
 
     //mute
-    const enableAllMute = document.getElementById("enableAllMute-button");
     enableAllMute.addEventListener("click", muteAllListener)
 
     //stop all
-    const stopAll = document.getElementById("stopAll-button");
     stopAll.addEventListener("click", stopAllListener);
 
     //start all
-    const startAll = document.getElementById("startAll-button");
     startAll.addEventListener("click", startAllListener);
 
     // Change chosen sound
-    const select = document.getElementById("song_names");
     select.addEventListener("change", (event) => {
         console.log(event.target.value)
         let dictElement = audioInstance.InstanceDict[event.target.value];
@@ -100,8 +111,8 @@ function initListener() {
         audioVisualizer = dictElement._AudioVisualizer;
         console.log(dictElement)
         timeSlide.setAttribute("max", endingTimeListener());
+        EndingTime.textContent = endingTimeListener();
     });
-
 }
 
 /**
@@ -173,7 +184,7 @@ function restartAllButtonListener() {
 /**
  * CurrentTimeListener of Track
  */
-function currentTimeListener() {
+function getCurrentTimeListener() {
     return audioHandler.getCurrentTime().toFixed(2);
 }
 
@@ -190,13 +201,15 @@ function setCurrentTimeListener(time) {
 function loopListener(bool) {
     audioHandler.setLoop(bool);
 }
+
 /**
  *
  * @returns AudioInstance Object
  */
 export function getAudioInstance() {
-  return audioInstance;
+    return audioInstance;
 }
+
 /**
  * Mute Listener
  */
