@@ -14,24 +14,28 @@ folgend eine visuelle Darstellung der Features:
 
 ### 4. anwendbare Effekte
 
-##Demo
+## Demo
 
-##Installation
+## Installation
 Zum Starten der Anwendung wird Node.js benötigt. Bitte der Verlinkung zur Installation folgen, falls nötig. Ist Node.js installiert. Dann kann die Anwendung über die Eingabe des Befehls npm start in das Terminal gestartet werden. Meist öffnet sich der Browser automatisch, sollte dies nicht der Fall sein, so ist "White Noise+" über http://localhost:3000 aufrufbar.
 Wir empfehlen den Browser Google Chrome, Chrome basierte Browser, oder Microsoft Edge zu nutzen in anderen Browsern kann es sein, dass die Anwendung nicht richtig funktioniert.
 
+```links
 git clone git@github.com:Ktechen/avpiano.git (SSH) oder
 git clone https://github.com/Ktechen/avpiano.git (HTTPS)
+```
 
+```bash
 npm install
 npm start
 open http://localhost:3000
+```
 
-##Projekt
+## Projekt
 'PianoFlow' ist das Ergebnis der Projektarbeit im Modul "Multimedia Audio- und Videotechnik" im Sommersemster 2022. "PianoFlow" soll eine Anwendung zum Erstellen von eigenen Soundtracks bieten. Mithilfe des Designs und den anwendbaren Features soll das Kreieren von Musik leicht und spielerisch werden.
 
 
-##genutzte Technologien
+## genutzte Technologien
 Web Audio API
 
 ## Autoren
