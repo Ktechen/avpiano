@@ -43,11 +43,17 @@
     </div>
 
     <h2>Your Tunes</h2>
-        <audio controls id="savedTitel" class="SavedTitels">
-            <source src="public/sounds/LassDieSonneindeinHerz.mp3" type="audio/mpeg">
-            Your browser does not support the audio element.
+    <div class="savedTitel">
+        <label class="title"></label>
+        <button id="PlaySavedTitel">►</button>
+        <button id="StopSavedTitel">❚❚</button>
+        <input id="SongTimeLine" type="range"
+               min="0.01" max="5" step="0.1">
+        <audio id="TitelName">
+            <source src="">
         </audio>
-
+        <button id="reset" >⮌</button>
+    </div>
         <select id="octave-dropdown">
         <option value="0">
             Octave - 0

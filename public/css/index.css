@@ -77,9 +77,14 @@ p {
 }
 
 #savedTitel{
+    display: inline;
     min-width: 27em;
     border-radius: 30px;
     margin-bottom: 1em;
+}
+
+#SongTimeLine{
+    max-width: 15em;
 }
 
 #octave-dropdown{
@@ -151,6 +156,16 @@ input, select {
     color: #37746d;
     font-family: 'VT323', cursive;
     box-shadow: inset 0 0 3px #091658;
+}
+
+.savedTitel {
+    min-width: 27em;
+    max-height: 3em;
+    background: rgba(255, 255, 255, 0.7);
+    border: 5px solid #083a76;
+    box-shadow: 0 0 4px #144a8d;
+    border-radius: 30px;
+    margin-bottom: 1em;
 }
 
 .octave-dropdown {
