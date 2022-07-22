@@ -38,11 +38,9 @@ function initListener() {
     const startAll = document.getElementById("startAll-button");
     const select = document.getElementById("song_names");
 
-
-
     //Init all
     document.addEventListener('DOMContentLoaded', ()=> {
-        EndingTime.textContent = endingTimeListener();
+        EndingTime.textContent = endingTimeListener().toString();
         volumeButton.value = volumeStartRateDefault;
         playbackRateButton.value = playbackRateDefault;
         timeSlide.value = timeSlideRateDefault;
