@@ -214,13 +214,13 @@ button#kick{
     font-size: 0.9em;
     padding: 0.5em 0.5em;
 }
-button#snapkick{
+button#snapKick{
     background: #5903f8;
     font-size: 0.9em;
     padding: 0.5em 0.5em;
 }
 
-button#PlaySavedTitel{
+button#start-button{
     width: 30px;
     height: 30px;
     -webkit-border-radius: 15px;
@@ -228,7 +228,7 @@ button#PlaySavedTitel{
     border-radius: 15px;
 }
 
-button#StopSavedTitel,#ResetTitel{
+button#pause-button,#restart-button{
     width: 30px;
     height: 30px;
     -webkit-border-radius: 15px;
