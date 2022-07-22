@@ -54,13 +54,21 @@ export class AudioHandler {
     }
 
     getCurrentTime(){
-        console.log("Current Time: " + this.audio.currentTime)
         return this.audio.currentTime;
+    }
+
+    setCurrentTime(time){
+        this.audio.currentTime = time;
     }
 
     enableMute(){
         console.log("mute");
         this.setVolume(0);
+    }
+
+    getEndingTime(){
+        console.log("duration " + this.audio.duration);
+        return this.audio.duration;
     }
 
     resetAll(){

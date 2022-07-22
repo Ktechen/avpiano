@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="en">
+<html>
 
 <head>
     <meta charset="utf-8" />
@@ -41,7 +41,7 @@
         <div class="note ebony" id="A#" data-note="Bb">Bb</div>
         <div class="note ivory" id="B" data-note="B">B</div>
     </div>
-
+    </section>
     <h2>Your Tunes</h2>
     <div class="savedTitel">
         <label class="title"></label>
@@ -95,12 +95,21 @@
             <input id="playbackRate-button" type="range"
                    min="0.25" max="5" step="0.25">
         </div>
+
+        <div id="timeSlide x mt1">
+            <label for="volume-button">timeSlide: </label>
+            <input id="timeSlide-Button" type="range" min="0"
+                   step="0.01">
+        </div>
+
         <div id="time">
             <label for="CurrentTime">Time:</label>
             <h3 id="CurrentTime"></h3>
+            <label for="EndingTime">Track time:</label>
+            <h3 id="EndingTime"></h3>
         </div>
-
     </div>
+
 </div>
 
 </body>
@@ -108,7 +117,7 @@
 <script src="../js/AudioController.js" type="module"></script>
 <script src="../js/AudioHandler.js" type="module"></script>
 <script src="../js/AudioVisualizer.js" type="module"></script>
-<script src="../js/DropzoneSound.js" type="module"></script>
+<script src="../js/Recorder.js" type="module"></script>
 <script src="../js/PianoSound.js" type="module"></script>
 <script src="../js/Drumkit.js" type="module"></script>
 </html>
