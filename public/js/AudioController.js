@@ -46,16 +46,10 @@ function initListener() {
         timeSlide.value = timeSlideRateDefault;
     });
 
-
     // Start button
     startButton.addEventListener("click", startButtonListener);
     startButton.addEventListener("click", () => {
         playbackRateButton.value = getPlaybackRateButtonListener;
-    });
-
-    // Time Span
-
-    startButton.addEventListener("click", () => {
         setInterval(() => (CurrentTime.textContent = getCurrentTimeListener()), intervalTimerDefault);
         setInterval(()=> {timeSlide.value = getCurrentTimeListener()}, intervalTimerDefault);
     });
@@ -87,7 +81,6 @@ function initListener() {
     // loop Button
     loopButtonFalse.addEventListener("click", () => loopListener(false));
     loopButtonTrue.addEventListener("click", () => loopListener(true));
-
 
     //mute
     enableMute.addEventListener("click", muteListener)
