@@ -49,18 +49,18 @@ function initListener() {
         volumeButton.value = getVolumeButtonListener();
 
         //waiting for audioContext
-        setTimeout(() => {
-            EndingTime.textContent = getEndingTimeListener();
-            timeSlide.setAttribute("max", getEndingTimeListener());
-        }, 10);
+        EndingTime.textContent = "0";
+        timeSlide.setAttribute("max", getEndingTimeListener());
     });
 
     // Start button
     startButton.addEventListener("click", startButtonListener);
     startButton.addEventListener("click", () => {
-        EndingTime.textContent = getEndingTimeListener().toString();
+        timeSlide.setAttribute("max", getEndingTimeListener());
+        EndingTime.textContent = getEndingTimeListener();
         currentVolume.textContent = (Number(getVolumeButtonListener()) * 100).toString();
         currentPlayRate.textContent = getPlaybackRateButtonListener();
+        volumeButton.value = getVolumeButtonListener();
         setInterval(() => (CurrentTime.textContent = getCurrentTimeListener()), intervalTimerDefault);
         setInterval(() => timeSlide.value = getCurrentTimeListener(), intervalTimerDefault);
     });
