@@ -97,7 +97,7 @@ function changeVolume(event) {
  * sets up eventlisteners for utility-functions, gives piano a default octave (4) and defines the form the of the sinus-wave used to create sounds in the oscillators
  */
 function setup() {
-  changeOctave(3);
+  changeOctave(4);
   octaveDropdown.addEventListener("change", (e) => changeOctave(e.target.value));
   volumeControl.addEventListener("change", changeVolume, false);
   mainGainNode = audioContext.createGain();
