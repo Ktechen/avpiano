@@ -21,6 +21,7 @@
         <button id="snare"></button>
         <button id="kick"></button>
         <button id="snapKick"></button>
+        <button id="off"></button>
         <input type="text" id="song_name" placeholder="Name Titel"> </input>
         <button id="record">Rec.</button>
         <button id="save_song">Save</button>
@@ -106,28 +107,27 @@
                 <label for="timeSlide-Button">Track time: </label>
                 <input id="timeSlide-Button" type="range" min="0" step="0.01">
             </div>
-            <div><p id="CurrentTime"></p></div>
+            <div>
+                <span id="CurrentTime">0</span>
+                <span>/</span>
+                <span id="EndingTime">0</span>
+            </div>
             <div id="volume x mt1">
                 <label for="volume-button">Volume: </label>
                 <input id="volume-button" type="range" min="0" max="1" step="0.05">
             </div>
+            <div><p id="currentVolume">100</p></div>
             <div id="playbackRate">
-                <label for="playbackRate-button">PlayRate</label>
-                <input id="playbackRate-button" type="range" min="0.25" max="5" step="0.25">
+                <label for="playbackRate-button">PlayRate:</label>
+                <input id="playbackRate-button" type="range" min="0.1" max="3" step="0.1">
             </div>
+            <div><p id="currentPlayRate">1</p></div>
         </div>
     </div>
 
     <button id="loopTrue-button">Loop on</button>
     <button id="loopFalse-button">Loop Off</button>
 
-
-    <div id="time">
-        <label for="CurrentTime">Time:</label>
-
-        <label for="EndingTime">Track time:</label>
-        <h3 id="EndingTime"></h3>
-    </div>
 </div>
 
 </div>

@@ -383,3 +383,8 @@ input[type=range]:focus::-ms-fill-upper {
     align-items: center;
     align-content: center;
 }
+
+span{
+    margin-top: 0;
+    font-size: 1.3em;
+}

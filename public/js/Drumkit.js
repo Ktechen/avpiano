@@ -128,7 +128,7 @@ SnapKick.prototype.trigger = function(time) {
 function setup() {
 	let snareButton = document.getElementById("snare");
 	let kickButton = document.getElementById("kick");
-	let skButton = document.getElementById("snapkick");
+	let skButton = document.getElementById("snapKick");
 
     snareButton.addEventListener("mousedown", () => runBeat(snare));
 	kickButton.addEventListener("mousedown", () => runBeat(kick));
