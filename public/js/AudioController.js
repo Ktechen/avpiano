@@ -253,25 +253,3 @@ function getEndingTimeListener() {
     return audioHandler.getEndingTime().toFixed(2);
 }
 
-function getUserMedia() {
-    if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-        console.log("getUserMedia supported.");
-        navigator.mediaDevices
-            .getUserMedia(
-                // constraints - only audio needed for this app
-                {
-                    audio: true,
-                }
-            )
-            // Success callback
-            .then(function (stream) {
-            })
-
-            // Error callback
-            .catch(function (err) {
-                console.log("The following getUserMedia error occurred: " + err);
-            });
-    } else {
-        console.log("getUserMedia not supported on your browser!");
-    }
-}
