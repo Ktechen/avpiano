@@ -21,11 +21,7 @@
         <button id="snare"></button>
         <button id="kick"></button>
         <button id="snapKick"></button>
-<<<<<<< HEAD
-        <input type="text" id="song_name" placeholder="Name Titel"> </input>
-=======
         <input type="text" id="song_name" placeholder="Name Titel">
->>>>>>> a204175f92db27b0e8b56a81aafd3383b06bb4d1
         <button id="record">Rec.</button>
         <button id="save_song">Save</button>
     </div>
@@ -75,8 +71,8 @@
         </option>
     </select>
 
-    <h2>Your Tunes: </h2>
-
+    <h2>Your Titels: </h2>
+<!--TODO: Dropdown anpassen stylen-->
     <select id="song_names" class="dropdown">
         <option value="default_sound.mp3" selected>
             default_sound
@@ -85,15 +81,7 @@
             Lass die Sonne in dein Herz
         </option>
     </select>
-
-    <div class="allFeatures">
-        <button id="restartAll-button">RestartAll</button>
-        <button id="enableMute-button">Mute</button>
-        <button id="enableAllMute-button">MuteAll</button>
-        <button id="startAll-button">StartAll</button>
-        <button id="stopAll-button">StopAll</button>
-        <button id="stopAllBeats-button">DropTheBase</button>
-    </div>
+<!--TODO: einheitlichen fontstyle  -->
     <div class="savedTitel">
         <div class="menu-button">
             <div class="menus">
@@ -105,35 +93,49 @@
             <div class="menus">
                 <button id="restart-button">⮌</button>
             </div>
+            <div class="menus">
+<!--                TODO: -unicode einfügen-->
+                <button id="enableMute-button">🔇</button>
+            </div>
         </div>
+
         <div class="slider">
-            <div>
+            <div class="timeSlider">
                 <label for="timeSlide-Button">Track time: </label>
                 <input id="timeSlide-Button" type="range" min="0" step="0.01">
             </div>
             <div>
-                <span id="CurrentTime">0</span>
-                <span>/</span>
-                <span id="EndingTime">0</span>
+            <span id="CurrentTime">0</span>
+            <span>/</span>
+            <span id="EndingTime">0</span>
             </div>
+
             <div id="volume x mt1">
                 <label for="volume-button">Volume: </label>
                 <input id="volume-button" type="range" min="0" max="1" step="0.05">
+                <span id="currentVolume">100</span>
             </div>
-            <div><p id="currentVolume">100</p></div>
+
             <div id="playbackRate">
                 <label for="playbackRate-button">PlayRate:</label>
                 <input id="playbackRate-button" type="range" min="0.1" max="3" step="0.1">
+                <span id="currentPlayRate">1</span>
             </div>
-            <div><p id="currentPlayRate">1</p></div>
         </div>
     </div>
 
-    <button id="loopTrue-button">Loop on</button>
-    <button id="loopFalse-button">Loop Off</button>
+    <div class="allFeatures">
 
-</div>
+<!--        TODO: übersichtlicher sortieren-->
+        <button id="restartAll-button">RestartAll</button>
 
+        <button id="enableAllMute-button">MuteAll</button>
+        <button id="startAll-button">StartAll</button>
+        <button id="stopAll-button">StopAll</button>
+        <button id="stopAllBeats-button">DropTheBase</button>
+        <button id="loopTrue-button">Loop on</button>
+        <button id="loopFalse-button">Loop Off</button>
+    </div>
 </div>
 
 </body>

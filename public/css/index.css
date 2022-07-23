@@ -22,6 +22,8 @@ p {
     margin-top: 0;
     font-size: 1.3em;
 }
+span{
+    font-family: 'VT323', cursive;}
 
 .container {
     padding-top: 5em;
@@ -88,9 +90,19 @@ p {
     border-radius: 30px;
     margin-bottom: 1em;
 }
+#song_names{
+    min-width: 27em;
+    max-height: 6em;
+    background: rgba(255, 255, 255, 0.7);
+    border: 5px solid #5aa2f8;
+    box-shadow: 0 0 4px #144a8d;
+    border-radius: 30px;
+    margin-bottom: 1em;
+}
 
-#SongTimeLine {
-    max-width: 15em;
+
+#timeSlide-Button, #CurrentTime, #EndingTime, #volume-button, #playbackRate {
+    max-width: 17em;
 }
 
 .dropdown {
@@ -174,6 +186,20 @@ input, select {
     margin-bottom: 1em;
 }
 
+.menu-button {
+    margin-right: 40px;
+    padding: 10px;
+}
+
+.menus {
+    margin-bottom: 5px;
+}
+
+.allFeatures{
+    align-items: center;
+    align-content: center;
+}
+
 /* Idee wenn Zeit reicht*/
 .downloader {
     margin: 2em 0 2em 0;
@@ -209,6 +235,7 @@ button {
     box-shadow: 0 3px #043979;
     font-family: 'VT323', serif;
     font-size: 1em;
+    margin-bottom: 1em ;
 }
 
 button#snare {
@@ -230,20 +257,22 @@ button#snapKick {
 }
 
 button#start-button {
-    width: 30px;
-    height: 30px;
-    -webkit-border-radius: 15px;
-    -moz-border-radius: 15px;
-    border-radius: 15px;
+    width: 50px;
+    height: 50px;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    border-radius: 25px;
+    margin-bottom: 1em;
 }
 
 
 button#pause-button, #restart-button {
-    width: 30px;
-    height: 30px;
-    -webkit-border-radius: 15px;
-    -moz-border-radius: 15px;
-    border-radius: 15px;
+    width: 50px;
+    height: 50px;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    border-radius: 25px;
+    margin-bottom: 1em;
 }
 
 button:focus {
@@ -290,7 +319,7 @@ input[type=range]::-webkit-slider-thumb {
     height: 1.5em;
     background: #2eb7f6;
     width: 1em;
-    border-radius: 10px;
+    border-radius: 30px;
     cursor: pointer;
     -webkit-appearance: none;
     box-shadow: 0 3px #022849;
@@ -363,29 +392,4 @@ input[type=range]:focus::-ms-fill-lower {
 
 input[type=range]:focus::-ms-fill-upper {
     background: #367ebd;
-}
-
-.slider {
-    padding: 10px;
-    border-left: 3px solid #3071a9;
-}
-
-.menu-button {
-    margin-right: 40px;
-    padding: 10px;
-
-}
-
-.menus {
-    margin-bottom: 5px;
-}
-
-.allFeatures{
-    align-items: center;
-    align-content: center;
-}
-
-span{
-    margin-top: 0;
-    font-size: 1.3em;
 }
