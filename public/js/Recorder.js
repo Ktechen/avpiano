@@ -1,8 +1,8 @@
-import { getPianoAudioContext } from "./PianoSound.js";
 import { AudioHandler } from "./AudioHandler.js";
 import { AudioVisualizer } from "./AudioVisualizer.js";
 import { getAudioInstance } from "./AudioController.js";
 import { AudioContextDto } from "./AudioContextDto.js";
+import { getAudioContext } from "./AudioContextInstance.js";
 
 const record = document.querySelector("#record");
 const saveSong = document.querySelector("#save_song");
@@ -10,7 +10,7 @@ const saveSong = document.querySelector("#save_song");
 // disable saveSong button while not recording
 saveSong.disabled = true;
 
-let audioContext = getPianoAudioContext();
+let audioContext = getAudioContext();
 let dest = audioContext.createMediaStreamDestination();
 
 export function getMediaStreamDestination() {

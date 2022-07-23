@@ -1,7 +1,8 @@
 import { getMediaStreamDestination } from "./Recorder.js";
 import { PianoDataSet } from "./PianoDataSet.js";
+import { getAudioContext } from "./AudioContextInstance.js";
 
-let audioContext = new (window.AudioContext || window.webkitAudioContext)();
+let audioContext = getAudioContext();
 let oscList = [];
 let mainGainNode = null;
 let keyboard = document.querySelector(".keys");
@@ -16,8 +17,9 @@ let noteFreq = new PianoDataSet().createNoteTable();
 const octaveDropdown = document.getElementById("octave-dropdown");
 octaveDropdown.addEventListener("change", (e) => changeOctave(e.target.value));
 
-export function getPianoAudioContext() {
-  return audioContext;
+
+export function getPianoNode() {
+  return mainGainNode;
 }
 
 function setup() {
