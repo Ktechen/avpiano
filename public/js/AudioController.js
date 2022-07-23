@@ -47,9 +47,11 @@ function initListener() {
         timeSlide.value = timeSlideRateDefault;
 
         volumeButton.value = getVolumeButtonListener();
-        //1ms delay
+
+        //waiting for audioContext
         setTimeout(() => {
             EndingTime.textContent = getEndingTimeListener();
+            timeSlide.setAttribute("max", getEndingTimeListener());
         }, 10);
     });
 
@@ -79,9 +81,10 @@ function initListener() {
     });
 
     // Time slide Button
-    timeSlide.addEventListener("change", () =>
-        setCurrentTimeListener(timeSlide.value)
-    );
+    timeSlide.addEventListener("change", () => {
+        setCurrentTimeListener(timeSlide.value);
+        CurrentTime.textContent = timeSlide.value;
+    });
 
     // playbackRate Button
     playbackRateButton.addEventListener("change", () => {
