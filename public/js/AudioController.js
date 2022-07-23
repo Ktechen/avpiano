@@ -203,6 +203,12 @@ function setCurrentTimeListener(time) {
  * loopListener of Track
  */
 function loopListener(bool) {
+    if (!bool){
+        for (const [key, value] of Object.entries(audioInstance.InstanceDict)) {
+            value._AudioHandler.setLoop(bool);
+        }
+    }
+
     audioHandler.setLoop(bool);
 }
 
