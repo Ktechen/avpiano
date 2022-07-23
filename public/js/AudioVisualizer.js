@@ -1,7 +1,14 @@
+import { getAudioContext } from "./AudioContextInstance.js";
+import { getPianoNode } from "./PianoSound.js";
+
 var CANVAS_WIDTH = 388;
 var CANVAS_HEIGHT = 100;
 
 var FFT_SIZE = 2048;
+
+var audioList = {};
+var hasPiano = false;
+
 export function AudioVisualizer(audio) {
   this.canvas = document.getElementById("visualizer");
 
@@ -19,11 +26,20 @@ export function AudioVisualizer(audio) {
  * Visualizes the Track which is playing
  */
 AudioVisualizer.prototype.drawAudio = function () {
-  this.audioContext = new AudioContext();
-  this.audioSource = this.audioContext.createMediaElementSource(this.audio);
+  this.audioContext = getAudioContext();
   this.analyser = this.audioContext.createAnalyser();
-
-  this.audioSource.connect(this.analyser);
+  if (audioList[this.audio.src] == null) {
+    this.audioSource = this.audioContext.createMediaElementSource(this.audio);
+    audioList[this.audio.src] = this.audioSource;
+    this.audioSource.connect(this.analyser);
+  } else {
+    this.audioSource = audioList[this.audio.src];
+  }
+  if (!hasPiano) {
+    this.pianoNode = getPianoNode();
+    this.pianoNode.connect(this.analyser);
+    hasPiano = true;
+  }
   this.analyser.connect(this.audioContext.destination);
 
   this.analyser.fftSize = FFT_SIZE;
@@ -49,7 +65,7 @@ AudioVisualizer.prototype.animate = function () {
   this.canvasContext.strokeStyle = "rgb(0, 0, 0)";
   this.canvasContext.beginPath();
 
-  const sliceWidth = (CANVAS_WIDTH) / this.bufferLength;
+  const sliceWidth = CANVAS_WIDTH / this.bufferLength;
   let x = 0;
 
   for (let i = 0; i < this.bufferLength; i++) {
