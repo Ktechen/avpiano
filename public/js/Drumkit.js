@@ -1,8 +1,14 @@
 let context = new (window.AudioContext || window.webkitAudioContext)();
+let snare = new Snare(context);
+let kick = new Kick(context);
+let snapkick = new SnapKick(context);
+let beatIsRunning = false; 
+let volumeControl = document.getElementById("volume-button");
 
-let flag = false; 
-let volumeControl = document.getElementById("volume x mt1");
 
+/**
+ * majority of this file is the synthesizing of the different drum-sounds
+ */
 
 function Kick(context) {
 	this.context = context;
@@ -17,6 +23,9 @@ function SnapKick(context) {
 };
 
 
+/**
+ * creates audio-noise-buffer which is essential for the iconic sound of a snare
+ */
 Snare.prototype.noiseBuffer = function() {
 	var bufferSize = this.context.sampleRate;
 	var buffer = this.context.createBuffer(1, bufferSize, this.context.sampleRate);
@@ -29,6 +38,9 @@ Snare.prototype.noiseBuffer = function() {
 	return buffer;
 }
 
+/**
+ * sets up the sound of the snare so it can be produced when triggering the object
+ */
 Snare.prototype.setup = function() {
 	this.noise = this.context.createBufferSource();
 	this.noise.buffer = this.noiseBuffer();
@@ -46,15 +58,18 @@ Snare.prototype.setup = function() {
     this.oscEnvelope.connect(this.context.destination);
 }
 
+/**
+ * starts oscillator with given parameters to produce snare sound
+ */
 Snare.prototype.trigger = function(time) {
 	this.setup();
 
-	this.noiseEnvelope.gain.setValueAtTime(1, time);
+	this.noiseEnvelope.gain.setValueAtTime(1 * volumeControl.value, time);
 	this.noiseEnvelope.gain.exponentialRampToValueAtTime(0.01, time + 0.2);
 	this.noise.start(time)
 
 	this.osc.frequency.setValueAtTime(100, time);
-	this.oscEnvelope.gain.setValueAtTime(0.7, time);
+	this.oscEnvelope.gain.setValueAtTime(0.7 * volumeControl.value, time);
 	this.oscEnvelope.gain.exponentialRampToValueAtTime(0.01, time + 0.1);
 	this.osc.start(time)
 
@@ -62,6 +77,9 @@ Snare.prototype.trigger = function(time) {
 	this.noise.stop(time + 0.2);
 }
 
+/**
+ * other drumsounds are synthesised the same way as the snare but with different parameters to alter the created sound
+ */
 Kick.prototype.setup = function() {
     
 	this.osc = this.context.createOscillator();
@@ -74,7 +92,7 @@ Kick.prototype.trigger = function(time) {
 	this.setup();
 
 	this.osc.frequency.setValueAtTime(150, time);
-	this.gain.gain.setValueAtTime(1, time);
+	this.gain.gain.setValueAtTime(1 * volumeControl.value, time);
 
 	this.osc.frequency.exponentialRampToValueAtTime(0.01, time + 0.5);
 	this.gain.gain.exponentialRampToValueAtTime(0.01, time + 0.5);
@@ -96,7 +114,7 @@ SnapKick.prototype.trigger = function(time) {
 	this.setup();
 
 	this.osc.frequency.setValueAtTime(500, time);
-	this.gain.gain.setValueAtTime(1, time);
+	this.gain.gain.setValueAtTime(1 * volumeControl.value, time);
 
 	this.osc.frequency.exponentialRampToValueAtTime(0.01, time + 0.25);
 	this.gain.gain.exponentialRampToValueAtTime(0.01, time + 0.4);
@@ -106,48 +124,31 @@ SnapKick.prototype.trigger = function(time) {
 	this.osc.stop(time + 0.3);
 };
 
-function runSnare() {
-
-	console.log("snare");
-	let snare = new Snare(context);
-	runBeat(snare);
-}
-
-function runKick() {
-
-	let kick = new Kick(context);
-	runBeat(kick);
-}
-
-function runSnapKick() {
-
-	let snapkick = new SnapKick(context);
-	runBeat(snapkick);
-}
-
-
 
 function setup() {
 	let snareButton = document.getElementById("snare");
 	let kickButton = document.getElementById("kick");
 	let skButton = document.getElementById("snapkick");
-    snareButton.addEventListener("mousedown", runSnare);
-	kickButton.addEventListener("mousedown", runKick);
-	skButton.addEventListener("mousedown", runSnapKick);
+
+    snareButton.addEventListener("mousedown", () => runBeat(snare));
+	kickButton.addEventListener("mousedown", () => runBeat(kick));
+	skButton.addEventListener("mousedown", () => runBeat(snapkick));
 }
 
+/**
+ * periodically triggers given drum-type (beatkit)
+ */
 function runBeat(beatkit) {
  
-    flag = !flag;
+    beatIsRunning = !beatIsRunning;
 
     
     setTimeout(function loop () {
         beatkit.trigger(context.currentTime);
       
-        if (flag) 
+        if (beatIsRunning) 
           setTimeout(loop, 1000);
-      }, 1000);
-    console.log("beat is starting...");
+      }, 1000); 
 
 }
 
