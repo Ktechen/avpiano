@@ -41,8 +41,11 @@ TODO: wird es im player gemacht oder hier, worauf wirkt sich alles aus?
 Hier wird die Laufzeit des spielenden Titels dargestellt.
 ## Demo
 
-TODO: Wie wollen wir die Demo machen
-Genau den Userflow planen
+### Piano + Aufnahme
+![Piano Aufnahme Funktionen](/documentation/Piano_Record.gif)
+
+### Song Abspielen
+![Piano Abspiel Funktionen](/documentation/Piano_Play.gif)
 
 ## Installation
 Zum Starten der Anwendung wird Node.js benötigt. Bitte der Verlinkung zur Installation folgen, falls nötig. Ist Node.js installiert. Dann kann die Anwendung über die Eingabe des Befehls npm start in das Terminal gestartet werden. Meist öffnet sich der Browser automatisch, sollte dies nicht der Fall sein, so ist 'PianoFlow' über http://localhost:3000 aufrufbar.
