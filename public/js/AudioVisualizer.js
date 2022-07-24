@@ -9,15 +9,13 @@ var FFT_SIZE = 2048;
 var audioList = {};
 var hasPiano = false;
 
-export function AudioVisualizer(audio) {
+export function AudioVisualizer() {
   this.canvas = document.getElementById("visualizer");
 
   // Init Canvas Size
   this.canvas.width = CANVAS_WIDTH;
   this.canvas.height = CANVAS_HEIGHT;
   this.canvasContext = this.canvas.getContext("2d");
-
-  this.audio = audio;
 
   this.audioSource;
   this.analyser;
@@ -28,18 +26,10 @@ export function AudioVisualizer(audio) {
 AudioVisualizer.prototype.drawAudio = function () {
   this.audioContext = getAudioContext();
   this.analyser = this.audioContext.createAnalyser();
-  if (audioList[this.audio.src] == null) {
-    this.audioSource = this.audioContext.createMediaElementSource(this.audio);
-    audioList[this.audio.src] = this.audioSource;
-    this.audioSource.connect(this.analyser);
-  } else {
-    this.audioSource = audioList[this.audio.src];
-  }
-  if (!hasPiano) {
-    this.pianoNode = getPianoNode();
-    this.pianoNode.connect(this.analyser);
-    hasPiano = true;
-  }
+
+  this.pianoNode = getPianoNode();
+  this.pianoNode.connect(this.analyser);
+
   this.analyser.connect(this.audioContext.destination);
 
   this.analyser.fftSize = FFT_SIZE;

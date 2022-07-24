@@ -64,8 +64,7 @@ mediaRecorder.onstop = function (e) {
   songs.appendChild(newOption);
 
   const audioHandler = new AudioHandler(new Audio(audioURL));
-  let audioVisualizer = new AudioVisualizer(audioHandler.getAudio());
-  let audioContextDto = new AudioContextDto(audioVisualizer, audioHandler);
+  let audioContextDto = new AudioContextDto(audioHandler);
 
   const audioInstance = getAudioInstance();
   audioInstance.addToDict(audioURL, audioContextDto);
