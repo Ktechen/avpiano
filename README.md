@@ -16,9 +16,9 @@
 
 # **Features**
 
-## 1. Sound Visualisierung für das Piano
+## 1. Mediaplayer
 
-Hier werden die Audio-Inputs analysiert, gezeichnet und in einer Animation wiedergegeben.
+Umfangreicher Mediaplayer mit diversen Optionen für die Regelung der Lautstärke, Wiedergabegeschwindigkeit, einer Option für das Wiederholen ("loopen") von Audiospuren, einem Mute-Button für alle Audiospuren und Ähnliches.
 
 ## 2. Piano
 
@@ -28,7 +28,13 @@ Die Tasten erzeugen solange einen Ton, wie die angeklickt und gehalten werden.
 In der Oktavenwahl kann im Dropdown aus 8 verschiedenen Tonhöhen gewählt werden.
 Dabei wird die Frequenz der Töne entsprechend der gewählten Oktave geändert.
 
-## 3. Aufnahme eigener Titel
+
+##3. Sound Visualisierung für das Piano
+
+Hier werden die Audio-Inputs analysiert, gezeichnet und in einer Animation wiedergegeben.
+
+
+## 4. Aufnahme eigener Titel
 
 Über die Buttons "Rec." und "Save" können eigene Melodien aufgenommen und gespeichert werden.
 Dazu muss zuerst der "Rec" Button betätigt werden, um eine Aufnahme zu starten.
@@ -36,18 +42,16 @@ Danach wird die gewünschte Melodie auf der Klaviatur eingespielt und mit einem 
 Ein Name kann zusätzlich über das Texteingabefeld vergeben werden.
 Die gespeicherten Titel werden in einer chronologischen Liste aus Audio-Tracks im Audio-Dropdown dargestellt.
 
-## 4. Audio Dropdown
+## 5. Audio Dropdown
 
 Die Selektierung der Audio-Tracks erfolgt über ein Dropdown-Menü. Die Variablen der veränderbaren Eigenschaften der Audio-Tracks sind Play, Stop, Reset und Mute.
-Weiterhin ist der Audio-Track manipulierbar über die Regler wie im Abbild "Song Abspielen" zu sehen.
-Über die Regler kann die Lautstärke, Geschwindigkeit und den Zeitpunkt der Wiedergabe einstellen.
+Außerdem stehen noch zusätzliche Optionen zur Manipulation von Audiospuren zur Verfügung, siehe Kategorie "Mediaplayer"
 
-## 5. Beats
+## 6. Beatkit
 
 ![Piano Abspiel Funktionen](/documentation/Drums.gif)
 
-Zusätzlich gibt es drei Buttons, welche verschiedene Drumkit Funktionen haben.
-Der rote Button stoppt alle gestarteten Drumkit Sounds.
+Eine Art "Mini-Schlagzeug" mit dem man manuell eigene Beats kreieren kann, die sich automatisch loopen.
 
 
 ## Demo
