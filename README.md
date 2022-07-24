@@ -17,25 +17,25 @@
 # **Features**
 
 
-## 1. Sound Visualisierung für das Piano
+### ` 1. Sound Visualisierung für das Piano`
 
 ![Piano_Visualizer](https://user-images.githubusercontent.com/72447271/180659911-ab37350b-9f30-453c-ba68-e7d2435bc4c1.gif)
 
 Hier werden die Audi-Inputs der Klaviatur analysiert, gezeichnet und in einer Animation wiedergegeben.
 
-## 2. Piano
+### `2. Piano`
 
 Über die Klaviatur wird mittels der WebAudioAPI der korrespondierende Ton für diese Taste erzeugt und damit ein Klavier simuliert.
 Die Tasten erzeugen solange einen Ton, wie diese angeklickt und gehalten werden.
 
 
-## 3. Beatkit
+### `3. Beatkit`
 
 ![Piano Abspiel Funktionen](/documentation/Drums.gif)
 
 Eine Art "Mini-Schlagzeug" mit dem man manuell eigene Beats kreieren kann, die sich automatisch loopen.
 
-## 4. Aufnahme eigener Titel
+### `4. Aufnahme eigener Titel`
 
 Über die Buttons "Rec." und "Save" können eigene Melodien aufgenommen und gespeichert werden.
 Dazu muss zuerst der "Rec" Button betätigt werden, um eine Aufnahme zu starten.
@@ -43,17 +43,19 @@ Danach wird die gewünschte Melodie auf der Klaviatur eingespielt und mit einem 
 Ein Name kann zusätzlich über das Texteingabefeld vergeben werden.
 Die gespeicherten Titel werden in einer chronologischen Liste aus Audio-Tracks im Audio-Dropdown dargestellt.
 
-## 5. Pitch Auswahl
+
+
+### `5. Pitch Auswahl`
+
 In der Pitch-Auswahl kann im Dropdown aus 8 verschiedenen Tonhöhen gewählt werden.
 Dabei wird die Frequenz der Töne entsprechend des gewählten Pitches geändert.
 
-
-## 6. Wiedergabe gespeicherter Titel
+### `6. Wiedergabe gespeicherter Titel`
 
 Die Selektierung der Audio-Tracks erfolgt über ein Dropdown-Menü. Die gespeicherten Titel können über die 4 Mediaplayer Buttons gestartet, gestopt, zurückgesetzt und stumm geschaltet werden.
 Außerdem stehen noch zusätzliche Optionen zur Manipulation von Audiospuren zur Verfügung. Mittels des Sliders "Track Time" kann im Titel ein beliebige Zeitpunkt ausgewählt werden. Der "Volume" Slider ermöglicht das verändern der Lautstärke des ausgewählten Titels. Die Geschwindigkeit des Titels kann über den Slider "PLay Rate" abgesenkt oder angehoben werden.
 
-## 7. Kontrollpanel für alle gespeicherten Titel
+### `7. Kontrollpanel für alle gespeicherten Titel`
 
 In diesem Bereich lassen sich alle gespeicherten Titel zeitgleich starten, stoppen, neustarten und stummschalten. Es ist möglich mit dem Button "Loop On" die Titel in einer Dauerschleife spielen zu lassen. Mit dem "Loop Off" Button lässt sich die Dauerschleife beenden. 
 
