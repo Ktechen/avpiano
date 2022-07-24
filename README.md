@@ -29,7 +29,7 @@ In der Oktavenwahl kann im Dropdown aus 8 verschiedenen Tonhöhen gewählt werde
 Dabei wird die Frequenz der Töne entsprechend der gewählten Oktave geändert.
 
 
-##3. Sound Visualisierung für das Piano
+## 3. Sound Visualisierung für das Piano
 
 Hier werden die Audio-Inputs analysiert, gezeichnet und in einer Animation wiedergegeben.
 
