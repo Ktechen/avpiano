@@ -54,25 +54,20 @@ function initListener() {
     timeSlide.setAttribute("max", getEndingTimeListener());
   });
 
-  // Start button
-  startButton.addEventListener("click", startButtonListener);
-  startButton.addEventListener("click", () => {
-    timeSlide.setAttribute("max", getEndingTimeListener());
-    EndingTime.textContent = getEndingTimeListener();
-    currentVolume.textContent = (
-      Number(getVolumeButtonListener()) * 100
-    ).toString();
-    currentPlayRate.textContent = getPlaybackRateButtonListener();
-    volumeButton.value = getVolumeButtonListener();
-    setInterval(
-      () => (CurrentTime.textContent = getCurrentTimeListener()),
-      intervalTimerDefault
-    );
-    setInterval(
-      () => (timeSlide.value = getCurrentTimeListener()),
-      intervalTimerDefault
-    );
-  });
+    // Start button
+    startButton.addEventListener("click", startButtonListener);
+    startButton.addEventListener("click", () => {
+        timeSlide.setAttribute("max", getEndingTimeListener());
+        EndingTime.textContent = getEndingTimeListener();
+        currentVolume.textContent = (Number(getVolumeButtonListener()) * 100).toString();
+        currentPlayRate.textContent = getPlaybackRateButtonListener();
+        volumeButton.value = getVolumeButtonListener();
+        setInterval(() => (CurrentTime.textContent = getCurrentTimeListener()), intervalTimerDefault);
+        setInterval(() => timeSlide.value = getCurrentTimeListener(), intervalTimerDefault);
+        volumeButton.value = 0.5;
+        currentVolume.textContent = "50";
+        setVolumeButtonListener(volumeButton.value);
+    });
 
   //Pause Button
   pauseButton.addEventListener("click", pauseButtonListener);
@@ -83,13 +78,11 @@ function initListener() {
   // RestartAll Button
   restartAllButton.addEventListener("click", restartAllButtonListener);
 
-  // volume Button
-  volumeButton.addEventListener("change", () => {
-    volumeButtonListener(volumeButton.value);
-    currentVolume.textContent = (
-      Number(getVolumeButtonListener()) * 100
-    ).toString();
-  });
+    // volume Button
+    volumeButton.addEventListener("change", () => {
+        setVolumeButtonListener(volumeButton.value);
+        currentVolume.textContent = (Number(getVolumeButtonListener()) * 100).toString();
+    });
 
   // Time slide Button
   timeSlide.addEventListener("change", () => {
@@ -107,11 +100,19 @@ function initListener() {
   loopButtonFalse.addEventListener("click", () => loopListener(false));
   loopButtonTrue.addEventListener("click", () => loopListener(true));
 
-  //mute
-  enableMute.addEventListener("click", muteListener);
+    //mute
+    enableMute.addEventListener("click", muteListener);
+    enableMute.addEventListener("click", ()=> {
+        currentVolume.textContent = "0";
+        volumeButton.value = 0;
+    });
 
-  //mute
-  enableAllMute.addEventListener("click", muteAllListener);
+    //mute
+    enableAllMute.addEventListener("click", muteAllListener);
+    enableAllMute.addEventListener("click", ()=> {
+        currentVolume.textContent = "0";
+        volumeButton.value = 0;
+    });
 
   //stop all
   stopAll.addEventListener("click", stopAllListener);
@@ -159,8 +160,8 @@ function restartButtonListener() {
 /**
  * volume of Track
  */
-function volumeButtonListener(volume) {
-  audioHandler.setVolume(volume);
+function setVolumeButtonListener(volume) {
+    audioHandler.setVolume(volume);
 }
 
 /**
