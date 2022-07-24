@@ -1,5 +1,4 @@
 import { AudioHandler } from "./AudioHandler.js";
-import { AudioVisualizer } from "./AudioVisualizer.js";
 import { getAudioInstance } from "./AudioController.js";
 import { AudioContextDto } from "./AudioContextDto.js";
 import { getAudioContext } from "./AudioContextInstance.js";
