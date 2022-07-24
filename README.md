@@ -4,18 +4,9 @@
 
 'PianoFlow' ist eine musikalische Anwendung zum Erstellen von eigenen Soundtracks. Mithilfe der ausgewählten Klaviertasten können Melodien live gespielt, aufgenommen und gespeichert werden. Die Effekt-Buttons kreieren weitere Möglichkeiten der Bearbeitung und Wiedergabe.
 
-## Technologien
-
-- Web Audio API
-- Vanilla JS
-- HTML
-- CSS
-- Node.js (live-server)
-- MediaStream Recording API
-
 
 # **Features**
-
+Folgend eine kurze Beschreibung der Anwendung:
 
 ### ` 1. Sound Visualisierung für das Piano`
 
@@ -105,6 +96,16 @@ Die Projektplanung und Kommunikation wurde mit dem Online Whiteboard Tool [Miro]
 - Hinzufügen von Youtube Links als Audio-Track
 - Wechseln zwischen dem aktuellen Piano und einem vollständigen Piano mit einer Visualisierung aller Oktaven
 - Piano Steuerung über die Tastatur
+
+## Technologien
+
+- Web Audio API
+- Vanilla JS
+- HTML
+- CSS
+- Node.js (live-server)
+- MediaStream Recording API
+
 
 ## Autoren
 
