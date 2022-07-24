@@ -96,6 +96,8 @@ Web-Anwendung startet unter: http://127.0.0.1:8090
 
 'PianoFlow' ist das Ergebnis der Projektarbeit im Modul "Multimedia Audio- und Videotechnik" im Sommersemster 2022. "PianoFlow" soll eine Anwendung zum Erstellen von eigenen Soundtracks bieten. Mithilfe des Designs und den anwendbaren Features soll das Kreieren von Musik leicht und spielerisch gestaltet werden.
 
+Die Projektplanung und Kommunikation wurde mit dem Online Whiteboard Tool [Miro](https://miro.com/app/board/uXjVOuTjv_o=/?share_link_id=937947553747) umgesetzt.
+
 ## Zukünftige Ideen
 - REST API Backend zum speichern (POST) und Abrufen (GET) der Audio-Tracks.
 - Hinzufügen von Youtube Links als Audio-Track
