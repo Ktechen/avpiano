@@ -46,12 +46,6 @@ h1 {
     filter: hue-rotate(197deg)
 }
 
-span{
-    margin-top: -20em;
-    font-size: 1.3em;
-    margin-bottom: 1em;
-}
-
 .label-spacing {
     margin-bottom: 2em;
     margin-top: -0.8em;
@@ -70,7 +64,7 @@ span{
     margin-right: 18px;
 }
 
-/*Rahmen*/
+/*Piano*/
 #keys {
     height: 14em;
     display: flex;
@@ -118,7 +112,7 @@ span{
     margin-bottom: 1em;
 }
 
-/*Tasten*/
+/*Keys*/
 .note {
     flex: 1;
     display: inline-flex;
@@ -163,20 +157,7 @@ div#E {
     background: #ffffff;
 }
 
-input, select {
-    padding: 0.25em;
-    min-width: 13em;
-    border-radius: 6px;
-    font-size: 1em;
-    background: #e5eee4;
-    border: 2px solid #cecece;
-    border-right-color: #9b9b9b;
-    border-bottom-color: #9b9b9b;
-    color: #242424;
-    font-family: 'VT323', cursive;
-    box-shadow: inset 0 0 3px #091658;
-}
-
+/*SavedTitelControl*/
 .savedTitel {
     display: flex;
     flex-direction: row;
@@ -210,6 +191,12 @@ input, select {
 ::placeholder {
     color: #000000;
     font-family: 'VT323', cursive;
+}
+
+span{
+    margin-top: -20em;
+    font-size: 1.3em;
+    margin-bottom: 1em;
 }
 
 button {
@@ -281,8 +268,21 @@ button:active {
     inset 2px 2px 3px rgba(0, 0, 0, .6);
 }
 
-/* Range */
+input, select {
+    padding: 0.25em;
+    min-width: 13em;
+    border-radius: 6px;
+    font-size: 1em;
+    background: #e5eee4;
+    border: 2px solid #cecece;
+    border-right-color: #9b9b9b;
+    border-bottom-color: #9b9b9b;
+    color: #242424;
+    font-family: 'VT323', cursive;
+    box-shadow: inset 0 0 3px #091658;
+}
 
+/* Silder */
 input[type=range] {
     -webkit-appearance: none;
     margin: 18px 0;
