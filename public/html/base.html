@@ -21,6 +21,7 @@
         <button id="snare"></button>
         <button id="kick"></button>
         <button id="snapKick"></button>
+        <button id="stopAllBeats-button"></button>
         <input type="text" id="song_name" placeholder="Name Titel">
         <button id="record">Rec.</button>
         <button id="save_song">Save</button>
@@ -95,44 +96,45 @@
             </div>
             <div class="menus">
 <!--                TODO: -unicode einfügen-->
-                <button id="enableMute-button">🔇</button>
+                <button id="enableMute-button">Mute</button>
             </div>
         </div>
-
+<!--Indikatoren richtig stylen-->
         <div class="slider">
             <div class="timeSlider">
                 <label for="timeSlide-Button">Track time: </label>
                 <input id="timeSlide-Button" type="range" min="0" step="0.01">
             </div>
-            <div>
-            <span id="CurrentTime">0</span>
-            <span>/</span>
-            <span id="EndingTime">0</span>
+            <div class="label-spacing">
+                <span id="CurrentTime">0</span>
+                <span>/</span>
+                <span  id="EndingTime">0</span>
             </div>
 
-            <div id="volume x mt1">
+            <div  id="volume x mt1">
                 <label for="volume-button">Volume: </label>
                 <input id="volume-button" type="range" min="0" max="1" step="0.05">
-                <span id="currentVolume">100</span>
+                <div class="label-spacing">
+                    <span id="currentVolume">100</span>
+                </div>
             </div>
 
             <div id="playbackRate">
                 <label for="playbackRate-button">PlayRate:</label>
                 <input id="playbackRate-button" type="range" min="0.1" max="3" step="0.1">
-                <span id="currentPlayRate">1</span>
+                <div class="label-spacing">
+                    <span id="currentPlayRate">1</span>
+                </div>
             </div>
         </div>
     </div>
 
+    <h2>Control All Tracks: </h2>
     <div class="allFeatures">
-
-<!--        TODO: übersichtlicher sortieren-->
-        <button id="restartAll-button">RestartAll</button>
-
-        <button id="enableAllMute-button">MuteAll</button>
-        <button id="startAll-button">StartAll</button>
-        <button id="stopAll-button">StopAll</button>
-        <button id="stopAllBeats-button">DropTheBase</button>
+        <button id="startAll-button">Start</button>
+        <button id="stopAll-button">Stop</button>
+        <button id="restartAll-button">Restart</button>
+        <button id="enableAllMute-button">Mute</button>
         <button id="loopTrue-button">Loop on</button>
         <button id="loopFalse-button">Loop Off</button>
     </div>
