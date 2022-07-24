@@ -63,6 +63,9 @@ function initListener() {
         volumeButton.value = getVolumeButtonListener();
         setInterval(() => (CurrentTime.textContent = getCurrentTimeListener()), intervalTimerDefault);
         setInterval(() => timeSlide.value = getCurrentTimeListener(), intervalTimerDefault);
+        volumeButton.value = 0.5;
+        currentVolume.textContent = "50";
+        setVolumeButtonListener(volumeButton.value);
     });
 
     //Pause Button
@@ -76,7 +79,7 @@ function initListener() {
 
     // volume Button
     volumeButton.addEventListener("change", () => {
-        volumeButtonListener(volumeButton.value);
+        setVolumeButtonListener(volumeButton.value);
         currentVolume.textContent = (Number(getVolumeButtonListener()) * 100).toString();
     });
 
@@ -98,9 +101,17 @@ function initListener() {
 
     //mute
     enableMute.addEventListener("click", muteListener);
+    enableMute.addEventListener("click", ()=> {
+        currentVolume.textContent = "0";
+        volumeButton.value = 0;
+    });
 
     //mute
     enableAllMute.addEventListener("click", muteAllListener);
+    enableAllMute.addEventListener("click", ()=> {
+        currentVolume.textContent = "0";
+        volumeButton.value = 0;
+    });
 
     //stop all
     stopAll.addEventListener("click", stopAllListener);
@@ -125,7 +136,7 @@ function initListener() {
 function startButtonListener() {
     if (!audioHandler.getIsPlaying()) {
         audioHandler.startAudio();
-        audioVisualizer.drawAudio();
+        //audioVisualizer.drawAudio();
     } else {
         audioHandler.restartAudio();
         audioHandler.pauseAudio();
@@ -150,7 +161,7 @@ function restartButtonListener() {
 /**
  * volume of Track
  */
-function volumeButtonListener(volume) {
+function setVolumeButtonListener(volume) {
     audioHandler.setVolume(volume);
 }
 
