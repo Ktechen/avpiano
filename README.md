@@ -16,23 +16,24 @@
 
 # **Features**
 
-## 1. Mediaplayer
 
-Umfangreicher Mediaplayer mit diversen Optionen für die Regelung der Lautstärke, Wiedergabegeschwindigkeit, einer Option für das Wiederholen ("loopen") von Audiospuren, einem Mute-Button für alle Audiospuren und Ähnliches.
+## 1. Sound Visualisierung für das Piano
+
+![Piano_Visualizer](https://user-images.githubusercontent.com/72447271/180659911-ab37350b-9f30-453c-ba68-e7d2435bc4c1.gif)
+
+Hier werden die Audi-Inputs der Klaviatur analysiert, gezeichnet und in einer Animation wiedergegeben.
 
 ## 2. Piano
 
 Über die Klaviatur wird mittels der WebAudioAPI der korrespondierende Ton für diese Taste erzeugt und damit ein Klavier simuliert.
-Die Tasten erzeugen solange einen Ton, wie die angeklickt und gehalten werden.
-
-In der Oktavenwahl kann im Dropdown aus 8 verschiedenen Tonhöhen gewählt werden.
-Dabei wird die Frequenz der Töne entsprechend der gewählten Oktave geändert.
+Die Tasten erzeugen solange einen Ton, wie diese angeklickt und gehalten werden.
 
 
-## 3. Sound Visualisierung für das Piano
+## 3. Beatkit
 
-Hier werden die Audio-Inputs analysiert, gezeichnet und in einer Animation wiedergegeben.
+![Piano Abspiel Funktionen](/documentation/Drums.gif)
 
+Eine Art "Mini-Schlagzeug" mit dem man manuell eigene Beats kreieren kann, die sich automatisch loopen.
 
 ## 4. Aufnahme eigener Titel
 
@@ -42,17 +43,19 @@ Danach wird die gewünschte Melodie auf der Klaviatur eingespielt und mit einem 
 Ein Name kann zusätzlich über das Texteingabefeld vergeben werden.
 Die gespeicherten Titel werden in einer chronologischen Liste aus Audio-Tracks im Audio-Dropdown dargestellt.
 
-## 5. Audio Dropdown
+## 5. Pitch Auswahl
+In der Pitch-Auswahl kann im Dropdown aus 8 verschiedenen Tonhöhen gewählt werden.
+Dabei wird die Frequenz der Töne entsprechend des gewählten Pitches geändert.
 
-Die Selektierung der Audio-Tracks erfolgt über ein Dropdown-Menü. Die Variablen der veränderbaren Eigenschaften der Audio-Tracks sind Play, Stop, Reset und Mute.
-Außerdem stehen noch zusätzliche Optionen zur Manipulation von Audiospuren zur Verfügung, siehe Kategorie "Mediaplayer".
 
-## 6. Beatkit
+## 6. Wiedergabe gespeicherter Titel
 
-![Piano Abspiel Funktionen](/documentation/Drums.gif)
+Die Selektierung der Audio-Tracks erfolgt über ein Dropdown-Menü. Die gespeicherten Titel können über die 4 Mediaplayer Buttons gestartet, gestopt, zurückgesetzt und stumm geschaltet werden.
+Außerdem stehen noch zusätzliche Optionen zur Manipulation von Audiospuren zur Verfügung. Mittels des Sliders "Track Time" kann im Titel ein beliebige Zeitpunkt ausgewählt werden. Der "Volume" Slider ermöglicht das verändern der Lautstärke des ausgewählten Titels. Die Geschwindigkeit des Titels kann über den Slider "PLay Rate" abgesenkt oder angehoben werden.
 
-Eine Art "Mini-Schlagzeug" mit dem man manuell eigene Beats kreieren kann, die sich automatisch loopen.
+## 7. Kontrollpanel für alle gespeicherten Titel
 
+In diesem Bereich lassen sich alle gespeicherten Titel zeitgleich starten, stoppen, neustarten und stummschalten. Es ist möglich mit dem Button "Loop On" die Titel in einer Dauerschleife spielen zu lassen. Mit dem "Loop Off" Button lässt sich die Dauerschleife beenden. 
 
 ## Demo
 
