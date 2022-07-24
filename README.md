@@ -45,7 +45,7 @@ Die gespeicherten Titel werden in einer chronologischen Liste aus Audio-Tracks i
 ## 5. Audio Dropdown
 
 Die Selektierung der Audio-Tracks erfolgt über ein Dropdown-Menü. Die Variablen der veränderbaren Eigenschaften der Audio-Tracks sind Play, Stop, Reset und Mute.
-Außerdem stehen noch zusätzliche Optionen zur Manipulation von Audiospuren zur Verfügung, siehe Kategorie "Mediaplayer"
+Außerdem stehen noch zusätzliche Optionen zur Manipulation von Audiospuren zur Verfügung, siehe Kategorie "Mediaplayer".
 
 ## 6. Beatkit
 
