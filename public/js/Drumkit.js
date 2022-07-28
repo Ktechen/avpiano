@@ -2,7 +2,7 @@ let context = new (window.AudioContext || window.webkitAudioContext)();
 let snare = new Snare(context);
 let kick = new Kick(context);
 let snapkick = new SnapKick(context);
-let beatIsRunning = false; 
+let beatIsRunning = true; 
 let volumeControl = document.getElementById("volume-button");
 
 
@@ -39,7 +39,7 @@ Snare.prototype.noiseBuffer = function() {
 }
 
 /**
- * sets up the sound of the snare so it can be produced when triggering the object
+ * sets up the sound of the snare so it can be produced when triggering the snare-object
  */
 Snare.prototype.setup = function() {
 	this.noise = this.context.createBufferSource();
@@ -129,27 +129,29 @@ function setup() {
 	let snareButton = document.getElementById("snare");
 	let kickButton = document.getElementById("kick");
 	let skButton = document.getElementById("snapKick");
+	let beatOffButton = document.getElementById("stopAllBeats-button");
 
     snareButton.addEventListener("mousedown", () => runBeat(snare));
 	kickButton.addEventListener("mousedown", () => runBeat(kick));
 	skButton.addEventListener("mousedown", () => runBeat(snapkick));
+	beatOffButton.addEventListener("mousedown", () => beatIsRunning = false);
 }
 
 /**
  * periodically triggers given drum-type (beatkit)
  */
 function runBeat(beatkit) {
- 
-    beatIsRunning = !beatIsRunning;
 
-    
+	beatIsRunning = true; 
+
     setTimeout(function loop () {
         beatkit.trigger(context.currentTime);
       
         if (beatIsRunning) 
-          setTimeout(loop, 1000);
+          setTimeout(loop, 1500);
       }, 1000); 
 
 }
+
 
 setup(); 
