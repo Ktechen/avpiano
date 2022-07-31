@@ -116,3 +116,6 @@ Kurt-Kester Leißering
 Marvin Meitzner
 
 Sophia Piyamit
+
+## Total points
+51/60
